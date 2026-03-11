@@ -1,0 +1,297 @@
+/* ============================
+   Hero Scroll Section Styles
+   ============================ */
+
+.heroContainer {
+  width: 100%;
+  background: #0F0F0F;
+  position: relative;
+}
+
+.heroViewport {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.introGlow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(42vw, 520px);
+  height: min(42vw, 520px);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02) 34%, rgba(255, 255, 255, 0) 66%),
+    radial-gradient(circle at center, rgba(255, 107, 53, 0.24), rgba(255, 107, 53, 0.08) 38%, rgba(255, 107, 53, 0) 72%);
+  filter: blur(24px);
+  opacity: 0.92;
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform, opacity;
+}
+
+/* --- Logo --- */
+.logoWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  will-change: transform, opacity;
+}
+
+.heroLogo {
+  width: clamp(150px, 20vw, 280px);
+  height: auto;
+  filter: drop-shadow(0 0 48px rgba(255, 107, 53, 0.22));
+}
+
+/* --- Islands --- */
+.islandLeft {
+  position: absolute;
+  left: 5.5%;
+  top: 52%;
+  transform: translateY(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.islandRight {
+  position: absolute;
+  right: 5.5%;
+  top: 52%;
+  transform: translateY(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.islandImage {
+  width: clamp(290px, 29vw, 460px);
+  height: auto;
+  filter: drop-shadow(0 24px 64px rgba(0, 0, 0, 0.52));
+}
+
+.islandLabel {
+  font-family: var(--font-heading);
+  font-size: clamp(0.75rem, 1.2vw, 1rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  opacity: 0.87;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+}
+
+/* --- Text panels --- */
+.textRight {
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(32vw, 500px);
+  max-width: 500px;
+  z-index: 8;
+  opacity: 0;
+  padding: 30px 0 30px 32px;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0) 82%);
+  will-change: transform, opacity;
+}
+
+.textLeft {
+  position: absolute;
+  left: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(32vw, 500px);
+  max-width: 500px;
+  z-index: 8;
+  opacity: 0;
+  padding: 30px 32px 30px 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0) 82%);
+  will-change: transform, opacity;
+}
+
+.sectionEyebrow {
+  font-family: var(--font-heading);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+  margin-bottom: 14px;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4.6vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.sectionBody {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.45vw, 1.12rem);
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  color: var(--color-text-muted);
+  opacity: 0.87;
+  margin-bottom: 0;
+}
+
+.sectionBody + .sectionBody {
+  margin-top: 12px;
+}
+
+/* --- Final Overlay --- */
+.overlay {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 20;
+  width: 90%;
+  max-width: 700px;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .islandLeft {
+    left: 3%;
+  }
+  .islandRight {
+    right: 3%;
+  }
+  .textRight {
+    right: 3%;
+    width: min(34vw, 380px);
+    max-width: 380px;
+    padding: 24px 0 24px 20px;
+  }
+  .textLeft {
+    left: 3%;
+    width: min(34vw, 380px);
+    max-width: 380px;
+    padding: 24px 20px 24px 0;
+  }
+
+  .islandImage {
+    width: clamp(260px, 28vw, 360px);
+  }
+}
+
+@media (max-width: 860px) {
+  .islandLeft,
+  .islandRight {
+    top: 26%;
+  }
+
+  .textRight,
+  .textLeft {
+    bottom: 8%;
+    top: auto;
+    left: 50%;
+    right: auto;
+    width: min(82vw, 620px);
+    max-width: 620px;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 24px 0;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0) 88%);
+  }
+}
+
+@media (max-width: 768px) {
+  .introGlow {
+    width: min(78vw, 360px);
+    height: min(78vw, 360px);
+    filter: blur(18px);
+  }
+
+  /* Center both islands and make them larger */
+  .islandLeft,
+  .islandRight {
+    left: 50%;
+    right: auto;
+    top: 28%;
+    transform: translate(-50%, -50%);
+  }
+
+  .islandImage {
+    width: clamp(220px, 68vw, 340px);
+  }
+
+  /* Text panels below island, centered */
+  .textRight,
+  .textLeft {
+    top: auto;
+    bottom: 10%;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    text-align: center;
+    max-width: 85%;
+    width: 85%;
+    padding: 18px 0 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: none;
+    border-right: none;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0) 90%);
+  }
+
+  .sectionTitle {
+    font-size: clamp(1.4rem, 6vw, 1.8rem);
+  }
+
+  .sectionBody {
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+  }
+
+  .islandLabel {
+    font-size: clamp(0.6rem, 2.5vw, 0.8rem);
+    padding: 4px 12px;
+  }
+
+  .overlay {
+    bottom: 4%;
+    max-width: 90%;
+  }
+
+  .overlay h1 {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+  }
+}

@@ -1,0 +1,254 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@source "../components";
+@source "../lib";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================
+   MediaHouse  Global Design System
+   Tailwind v4 + shadcn/ui
+   ============================ */
+
+/* --- Light mode (base  required by shadcn, not used on our site) --- */
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.58 0.22 27);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --radius: 0.625rem;
+  --chart-1: oklch(0.809 0.105 251.813);
+  --chart-2: oklch(0.623 0.214 259.815);
+  --chart-3: oklch(0.546 0.245 262.881);
+  --chart-4: oklch(0.488 0.243 264.376);
+  --chart-5: oklch(0.424 0.199 265.638);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+/* --- Dark mode (our site is dark, html has class="dark") --- */
+.dark {
+  --background: #0F0F0F;
+  --foreground: #FFFFFF;
+  --card: #1A1A1A;
+  --card-foreground: #FFFFFF;
+  --popover: #1A1A1A;
+  --popover-foreground: #FFFFFF;
+  --primary: #FFFFFF;
+  --primary-foreground: #0F0F0F;
+  --secondary: #1A1A1A;
+  --secondary-foreground: #FFFFFF;
+  --muted: #1A1A1A;
+  --muted-foreground: #A0A0A0;
+  --accent: #1A1A1A;
+  --accent-foreground: #FFFFFF;
+  --destructive: #e74c3c;
+  --border: rgba(255, 255, 255, 0.10);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: rgba(255, 107, 53, 0.4);
+  --chart-1: oklch(0.809 0.105 251.813);
+  --chart-2: oklch(0.623 0.214 259.815);
+  --chart-3: oklch(0.546 0.245 262.881);
+  --chart-4: oklch(0.488 0.243 264.376);
+  --chart-5: oklch(0.424 0.199 265.638);
+  --sidebar: #141414;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #1A1A1A;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-ring: rgba(255, 255, 255, 0.2);
+
+  /* MediaHouse brand tokens */
+  --brand: #FF6B35;
+  --brand-secondary: #F7931E;
+  --brand-purple: #9B59B6;
+  --brand-purple-dark: #6C3483;
+  --text-muted: #B0B0B0;
+  --text-subdued: #666666;
+  --color-success: #2ecc71;
+  --color-error: #e74c3c;
+  --color-discord: #5865F2;
+  --surface-card: #161616;
+
+  /* Roblox brand tokens */
+  --roblox-red: #E2231A;
+  --roblox-red-dark: #B71C1C;
+  --roblox-charcoal: #1A1A2E;
+  --roblox-accent: #3B82F6;
+  --roblox-accent-light: #60A5FA;
+  --roblox-surface: #16162A;
+
+  /* Typography System  Based on hierarchy principles */
+  /* Line Heights (Visual Rhyming) */
+  --lh-tight: 1.1;        /* Headlines - modern, compact */
+  --lh-snug: 1.35;        /* Subheadings */
+  --lh-normal: 1.5;       /* UI elements, buttons */
+  --lh-relaxed: 1.65;     /* Body text - optimal readability */
+  --lh-loose: 1.75;       /* Long-form content */
+
+  /* Letter Spacing */
+  --tracking-tighter: -0.02em;  /* Large headlines */
+  --tracking-tight: -0.01em;    /* H2-H3 */
+  --tracking-normal: 0em;       /* Body text */
+  --tracking-wide: 0.01em;      /* Small text, improved readability */
+
+  /* Text Opacity Hierarchy (Material Design inspired) */
+  --text-high-emphasis: 1;      /* 100% - Primary headlines, CTAs */
+  --text-medium-emphasis: 0.87; /* 87% - Subheadings, important body */
+  --text-disabled: 0.38;        /* 38% - Disabled states */
+}
+
+/* --- Tailwind v4 Theme Registration --- */
+@theme inline {
+  /* Fonts */
+  --font-sans: "Vend Sans", sans-serif;
+  --font-heading: var(--font-lexend-deca), sans-serif;
+  --font-body: "Vend Sans", sans-serif;
+  --font-roblox: var(--font-outfit), sans-serif;
+
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* MediaHouse brand */
+  --color-brand: var(--brand);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-purple: var(--brand-purple);
+  --color-brand-purple-dark: var(--brand-purple-dark);
+  --color-text-muted: var(--text-muted);
+  --color-text-subdued: var(--text-subdued);
+  --color-success: var(--color-success);
+  --color-error: var(--color-error);
+  --color-discord: var(--color-discord);
+  --color-surface-card: var(--surface-card);
+
+  /* Roblox brand */
+  --color-roblox-red: var(--roblox-red);
+  --color-roblox-red-dark: var(--roblox-red-dark);
+  --color-roblox-charcoal: var(--roblox-charcoal);
+  --color-roblox-accent: var(--roblox-accent);
+  --color-roblox-accent-light: var(--roblox-accent-light);
+  --color-roblox-surface: var(--roblox-surface);
+
+  /* Radii */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Typography tokens */
+  --color-lh-tight: var(--lh-tight);
+  --color-lh-snug: var(--lh-snug);
+  --color-lh-normal: var(--lh-normal);
+  --color-lh-relaxed: var(--lh-relaxed);
+  --color-lh-loose: var(--lh-loose);
+}
+
+/* --- Base Layer  Global Reset + Body Styles --- */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: auto; /* GSAP handles smooth scrolling */
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    line-height: var(--lh-relaxed);
+    letter-spacing: var(--tracking-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  
+  /* Typography hierarchy classes */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tracking-tighter);
+    font-weight: 700;
+  }
+  
+  h1 {
+    letter-spacing: var(--tracking-tighter);
+  }
+  
+  h2, h3 {
+    letter-spacing: var(--tracking-tight);
+  }
+  
+  p {
+    line-height: var(--lh-relaxed);
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
