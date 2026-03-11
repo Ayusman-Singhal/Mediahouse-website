@@ -32,7 +32,7 @@ export default function ForCreators() {
               ))}
             </ul>
             <div className="h-12" />
-            <Button asChild variant="ctaPrimary" size="cta" className="duration-300">
+            <Button asChild variant="ctanotPrimary" size="cta" className="duration-300">
               <Link href="/apply/creator">Apply for Representation</Link>
             </Button>
           </div>

@@ -23,6 +23,9 @@ const buttonVariants = cva(
           "border-none bg-gradient-to-br from-brand to-brand-secondary text-white hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,107,53,0.3)]",
         ctaOutline:
           "bg-transparent text-white border-white/15 hover:bg-white/5 hover:border-white/30 hover:-translate-y-0.5",
+        ctanotPrimary:
+          "border-none bg-gradient-to-br from-brand-purple to-brand-purple-dark text-white hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,107,53,0.3)]",
+        
       },
       size: {
         default:

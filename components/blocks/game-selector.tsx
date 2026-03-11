@@ -98,14 +98,7 @@ export default function GameSelector() {
               <div className="mb-6 relative">
                 {/* Roblox icon — stylized geometric block */}
                 <div className="w-[clamp(100px,24vw,150px)] h-[clamp(100px,24vw,150px)] relative flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
-                  <div
-                    className="absolute inset-0 rounded-2xl rotate-6 bg-gradient-to-br from-roblox-red to-roblox-red-dark shadow-[0_16px_40px_rgba(226,35,26,0.25)]"
-                  />
-                  <div
-                    className="absolute inset-[6px] rounded-xl -rotate-3 bg-gradient-to-br from-[#1a1a2e] to-[#0f0f1a] flex items-center justify-center"
-                  >
-                    <span className="font-roblox text-[clamp(2rem,6vw,3.5rem)] font-black text-white tracking-tighter leading-none">R</span>
-                  </div>
+                 <img src="/assets/game-owner-island.png" alt="Roblox" className="w-full h-full object-contain drop-shadow-[0_16px_40px_rgba(0,0,0,0.5)]" />
                 </div>
               </div>
               <h3 className="font-heading text-[clamp(1.6rem,3.5vw,2.4rem)] font-extrabold text-white mb-3 tracking-[-0.01em]">
