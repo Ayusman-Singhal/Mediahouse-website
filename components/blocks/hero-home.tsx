@@ -78,10 +78,10 @@ export default function HeroHome() {
 
       // Scene 2: Glow fades, logo pulses
       tl.to(introGlowRef.current, { opacity: 0, scale: 1.14, duration: 0.8, ease: "power2.inOut" }, 1.15)
-      tl.to(logoRef.current, { y: -24, duration: 0.6, ease: "power2.out" }, 1.2)
+      tl.to(logoRef.current, { y: -68, duration: 0.6, ease: "power2.out" }, 1.2)
 
       // Scene 3: Headline fades in below logo
-      tl.fromTo(headlineRef.current, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, 2.0)
+      tl.fromTo(headlineRef.current, { opacity: 0, y: 40 }, { opacity: 1, y: -40, duration: 0.8, ease: "power2.out" }, 2.0)
 
     }, containerRef)
 
