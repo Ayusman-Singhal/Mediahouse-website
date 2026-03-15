@@ -24,6 +24,8 @@ export default function HeroBridge({ skipTestimonials = false }: { skipTestimoni
   const containerRef = useRef<HTMLElement>(null)
   const introGlowRef = useRef<HTMLDivElement>(null)
   const logoRef = useRef<HTMLDivElement>(null)
+  const introHintRef = useRef<HTMLDivElement>(null)
+  const gridPatternRef = useRef<HTMLDivElement>(null)
   const serverIslandRef = useRef<HTMLDivElement>(null)
   const creatorIslandRef = useRef<HTMLDivElement>(null)
   const bridgeRef = useRef<HTMLDivElement>(null)
@@ -88,6 +90,8 @@ export default function HeroBridge({ skipTestimonials = false }: { skipTestimoni
           ...(skipTestimonials ? [] : testimonialRefs.current),
           introGlowRef.current,
           logoRef.current,
+          introHintRef.current,
+          gridPatternRef.current,
           serverIslandRef.current,
           creatorIslandRef.current,
           serverTextRef.current,
@@ -143,8 +147,10 @@ export default function HeroBridge({ skipTestimonials = false }: { skipTestimoni
       }
 
       // Scene 2: Logo scene fades out
-      tl.to(introGlowRef.current, { opacity: 0, scale: 1.14, duration: 0.8, ease: "power2.inOut" }, 1.15 + t)
-      tl.to(logoRef.current, { opacity: 0, scale: 0.82, filter: "blur(8px)", duration: 0.9, ease: "power2.inOut" }, 1.35 + t)
+      tl.to(introGlowRef.current, { opacity: 0, scale: 1.18, duration: 0.8, ease: "power2.inOut" }, 1.15 + t)
+      tl.to(logoRef.current, { opacity: 0, y: -24, scale: 0.9, filter: "blur(9px)", duration: 0.85, ease: "power2.inOut" }, 1.25 + t)
+      tl.to(introHintRef.current, { opacity: 0, y: 18, duration: 0.6, ease: "power2.in" }, 1.4 + t)
+      tl.to(gridPatternRef.current, { opacity: 0.05, duration: 0.95, ease: "power2.inOut" }, 1.35 + t)
 
       // Scene 3: Server Owner island slides in + text appears
       tl.fromTo(
@@ -252,14 +258,35 @@ export default function HeroBridge({ skipTestimonials = false }: { skipTestimoni
   return (
     <section ref={containerRef} className={styles.heroContainer}>
       <div className={styles.heroViewport}>
+        <div ref={gridPatternRef} className={styles.gridPattern} aria-hidden="true" />
         <div ref={introGlowRef} className={styles.introGlow} aria-hidden="true" />
 
         {/* Testimonials */}
         {!skipTestimonials && <HeroTestimonials onRefsReady={handleTestimonialRefs} />}
 
-        {/* Logo */}
+        {/* Intro panel */}
         <div ref={logoRef} className={styles.logoWrapper}>
-          <Image src="/assets/MediaHouseLogo.png" alt="MediaHouse Logo" width={200} height={200} priority sizes="(max-width: 768px) 120px, 150px" className={styles.heroLogo} />
+          <p className={styles.heroTag}>Verified Professional Brokerage</p>
+          <h1 className={styles.heroTitle}>Structured Sponsorships for the Minecraft Ecosystem</h1>
+          <p className={styles.heroBody}>
+            Professional campaign brokerage for creators and server owners. We manage negotiation,
+            campaign structuring, and delivery oversight end to end.
+          </p>
+          <div className={styles.heroActions}>
+            <Button asChild variant="ctaPrimary" size="cta" className="duration-300">
+              <Link href="/apply/creator">Apply as Creator</Link>
+            </Button>
+            <Button asChild variant="ctaOutline" size="cta" className="duration-300">
+              <Link href="/apply/server-owner">Submit Campaign</Link>
+            </Button>
+          </div>
+          <div className={styles.logoSeal}>
+            <Image src="/assets/MediaHouseLogo.png" alt="MediaHouse Logo" width={92} height={92} priority sizes="92px" className={styles.heroLogo} />
+          </div>
+        </div>
+
+        <div ref={introHintRef} className={styles.scrollHint} aria-hidden="true">
+          Scroll to follow the sponsorship pipeline
         </div>
 
         {/* Server Owner Island + Text */}
