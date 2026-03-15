@@ -31,8 +31,8 @@ export default function Footer() {
             >
               Privacy Policy
             </button>
-            <a href="mailto:hello@mediahouse.gg" className="text-sm text-text-muted hover:text-white transition-colors duration-200">Contact</a>
-            <a href="https://discord.gg/5fzmDxmXrD" target="_blank" rel="noopener noreferrer" className="text-sm text-text-muted hover:text-white transition-colors duration-200">Discord</a>
+            <a href="https://discord.gg/ybyURPe8FA" target="_blank" rel="noopener noreferrer" className="text-sm text-text-muted hover:text-white transition-colors duration-200">Contact</a>
+            <a href="https://discord.gg/RfQuKxgaR7" target="_blank" rel="noopener noreferrer" className="text-sm text-text-muted hover:text-white transition-colors duration-200">Discord</a>
           </nav>
           {/* <div className="text-xs text-[#444]">
             &copy; {new Date().getFullYear()} MediaHouse. All rights reserved.

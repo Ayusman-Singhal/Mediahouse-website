@@ -47,7 +47,7 @@ export default function CaseStudies() {
         </div>
         <div className="h-12" />
         <a
-          href="https://discord.gg/5fzmDxmXrD" target="_blank" rel="noopener noreferrer"
+          href="https://discord.gg/RfQuKxgaR7" target="_blank" rel="noopener noreferrer"
           className="inline-flex items-center justify-center rounded-lg border border-white/15 bg-transparent px-8 py-3.5 font-heading text-[0.95rem] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/5"
         >
           Request Full Case Study

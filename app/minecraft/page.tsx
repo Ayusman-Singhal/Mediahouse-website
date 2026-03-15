@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function MinecraftPage() {
   return (
     <main>
-      <HeroBridge skipTestimonials />
+      <HeroBridge />
       <AuthoritySection />
       <ForServerOwners />
       <ForCreators />

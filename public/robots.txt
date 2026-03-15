@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mediahouse.gg/sitemap.xml
+Sitemap: https://media-house.studio/sitemap.xml

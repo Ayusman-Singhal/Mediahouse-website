@@ -233,7 +233,7 @@ export default function ServerOwnerForm() {
           type="url"
           value={formData.discord_link}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange("discord_link", e.target.value)}
-          placeholder="https://discord.gg/xxxx"
+          placeholder="https://discord.gg/RfQuKxgaR7"
         />
       </div>
 

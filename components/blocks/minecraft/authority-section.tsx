@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 export default function AuthoritySection() {
   return (
     <section id="authority" className="w-full py-16 sm:py-24 md:py-30 px-6 relative">
@@ -11,6 +13,16 @@ export default function AuthoritySection() {
           performance-driven gaming creators. We negotiate deals, structure
           campaigns, and oversee deliverables with professional control.
         </p>
+      </div>
+      <div className="h-12 py-12">
+        <div className="flex gap-8 justify-center flex-wrap">
+          <Button asChild variant="ctaPrimary" size="cta" className="duration-300">
+            <Link href="/apply/creator">Apply as Creator</Link>
+          </Button>
+          <Button asChild variant="ctaOutline" size="cta" className="duration-300">
+            <Link href="/apply/server-owner">Submit Promotion Request</Link>
+          </Button>
+        </div>
       </div>
     </section>
   )

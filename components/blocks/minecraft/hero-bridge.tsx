@@ -5,10 +5,10 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Link from "next/link"
 import Image from "next/image"
-import HeroTestimonials from "../hero-testimonials"
 import DataConnector from "./data-connector"
 import styles from "./hero-bridge.module.css"
 import { Button } from "@/components/ui/button"
+import { Particles } from "@/components/ui/particles"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -20,7 +20,7 @@ function getLayoutMode(viewportWidth: number): LayoutMode {
   return "desktop"
 }
 
-export default function HeroBridge({ skipTestimonials = false }: { skipTestimonials?: boolean } = {}) {
+export default function HeroBridge() {
   const containerRef = useRef<HTMLElement>(null)
   const introGlowRef = useRef<HTMLDivElement>(null)
   const logoRef = useRef<HTMLDivElement>(null)
@@ -33,16 +33,11 @@ export default function HeroBridge({ skipTestimonials = false }: { skipTestimoni
   const creatorTextRef = useRef<HTMLDivElement>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
   const scrollTargetTimeoutRef = useRef<number | null>(null)
-  const testimonialRefs = useRef<HTMLDivElement[]>([])
   const [layoutMode, setLayoutMode] = useState<LayoutMode | null>(null)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
   const isStackedLayout = layoutMode === "stacked" || layoutMode === "mobile"
   const isMobileLayout = layoutMode === "mobile"
-
-  const handleTestimonialRefs = useCallback((refs: HTMLDivElement[]) => {
-    testimonialRefs.current = refs
-  }, [])
 
   useEffect(() => {
     let frameId = 0
@@ -87,7 +82,6 @@ export default function HeroBridge({ skipTestimonials = false }: { skipTestimoni
     const ctx = gsap.context(() => {
       if (prefersReducedMotion) {
         const decorativeElements = [
-          ...(skipTestimonials ? [] : testimonialRefs.current),
           introGlowRef.current,
           logoRef.current,
           introHintRef.current,
@@ -110,90 +104,66 @@ export default function HeroBridge({ skipTestimonials = false }: { skipTestimoni
         return
       }
 
-      const scrollDistance = isMobileLayout ? 6000 : isStackedLayout ? 5600 : 5200
-      // When testimonials are skipped, shift all timeline positions earlier
-      const t = skipTestimonials ? -1.15 : 0
+      const scrollDistance = isMobileLayout ? 5400 : isStackedLayout ? 5000 : 4600
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: `+=${skipTestimonials ? scrollDistance - 600 : scrollDistance}`,
+          end: `+=${scrollDistance}`,
           pin: true,
           scrub: isStackedLayout ? 1 : 0.85,
           anticipatePin: 1,
         },
       })
 
-      // Scene 1: Testimonials fade in around the logo
-      const cards = testimonialRefs.current
-      if (!skipTestimonials && cards.length) {
-        cards.forEach((card) => {
-          tl.to(card, { opacity: 1, duration: 0.6, ease: "power2.out" }, 0)
-        })
-
-        // Scene 1.5: Testimonials scatter outward
-        cards.forEach((card) => {
-          const exitX = card.dataset.exitX || "100vw"
-          const exitY = card.dataset.exitY || "-100vh"
-          const delay = parseFloat(card.dataset.delay || "0")
-          tl.to(card, {
-            x: exitX,
-            y: exitY,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power2.in",
-          }, 0.5 + delay)
-        })
-      }
-
       // Scene 2: Logo scene fades out
-      tl.to(introGlowRef.current, { opacity: 0, scale: 1.18, duration: 0.8, ease: "power2.inOut" }, 1.15 + t)
-      tl.to(logoRef.current, { opacity: 0, y: -24, scale: 0.9, filter: "blur(9px)", duration: 0.85, ease: "power2.inOut" }, 1.25 + t)
-      tl.to(introHintRef.current, { opacity: 0, y: 18, duration: 0.6, ease: "power2.in" }, 1.4 + t)
-      tl.to(gridPatternRef.current, { opacity: 0.05, duration: 0.95, ease: "power2.inOut" }, 1.35 + t)
+      tl.to(introGlowRef.current, { opacity: 0, scale: 1.18, duration: 0.8, ease: "power2.inOut" }, 0)
+      tl.to(logoRef.current, { opacity: 0, y: -24, scale: 0.9, filter: "blur(9px)", duration: 0.85, ease: "power2.inOut" }, 0.1)
+      tl.to(introHintRef.current, { opacity: 0, y: 18, duration: 0.6, ease: "power2.in" }, 0.25)
+      tl.to(gridPatternRef.current, { opacity: 0.05, duration: 0.95, ease: "power2.inOut" }, 0.2)
 
       // Scene 3: Server Owner island slides in + text appears
       tl.fromTo(
         serverIslandRef.current,
         isMobileLayout ? { x: "-100vw", opacity: 0 } : { x: -220, y: 24, scale: 0.92, opacity: 0 },
         { x: 0, y: 0, scale: isMobileLayout ? 1 : 1.06, opacity: 1, duration: 1.35, ease: "power3.out" },
-        2.3 + t
+        1.15
       )
       tl.fromTo(
         serverTextRef.current,
         { x: 56, opacity: 0, filter: "blur(10px)" },
         { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.95, ease: "power2.out" },
-        2.65 + t
+        1.5
       )
 
       // Scene 4: Server island + text fade away
-      tl.to(serverTextRef.current, { opacity: 0, x: 44, filter: "blur(10px)", duration: 0.7, ease: "power2.in" }, 4.95 + t)
-      tl.to(serverIslandRef.current, { opacity: 0, x: isMobileLayout ? "-100vw" : -140, y: 16, scale: 0.98, duration: 0.85, ease: "power2.in" }, 5.1 + t)
+      tl.to(serverTextRef.current, { opacity: 0, x: 44, filter: "blur(10px)", duration: 0.7, ease: "power2.in" }, 3.8)
+      tl.to(serverIslandRef.current, { opacity: 0, x: isMobileLayout ? "-100vw" : -140, y: 16, scale: 0.98, duration: 0.85, ease: "power2.in" }, 3.95)
 
       // Scene 5: Creator island slides in + text appears
       tl.fromTo(
         creatorIslandRef.current,
         isMobileLayout ? { x: "100vw", opacity: 0 } : { x: 220, y: 24, scale: 0.92, opacity: 0 },
         { x: 0, y: 0, scale: isMobileLayout ? 1 : 1.06, opacity: 1, duration: 1.35, ease: "power3.out" },
-        6.05 + t
+        4.9
       )
       tl.fromTo(
         creatorTextRef.current,
         { x: -56, opacity: 0, filter: "blur(10px)" },
         { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.95, ease: "power2.out" },
-        6.4 + t
+        5.25
       )
 
       // Scene 6: Creator text fades out
-      tl.to(creatorTextRef.current, { opacity: 0, x: -44, filter: "blur(10px)", duration: 0.7, ease: "power2.in" }, 8.55 + t)
+      tl.to(creatorTextRef.current, { opacity: 0, x: -44, filter: "blur(10px)", duration: 0.7, ease: "power2.in" }, 7.4)
 
       // Scene 7: Both islands come together + data connector
       if (isStackedLayout) {
-        tl.to(creatorIslandRef.current, { x: "0%", y: isMobileLayout ? "-15vh" : "4vh", scale: 1, duration: 1.5, ease: "power2.inOut" }, 10 + t)
-        tl.fromTo(serverIslandRef.current,{ x: "-100vw", opacity: 0 },{ x: "0%", y: isMobileLayout ? "34vh" : "30vh", scale: 1, opacity: 1, duration: 1.5, ease: "power2.inOut" },10 + t)      
+        tl.to(creatorIslandRef.current, { x: "0%", y: isMobileLayout ? "-15vh" : "4vh", scale: 1, duration: 1.5, ease: "power2.inOut" }, 8.85)
+        tl.fromTo(serverIslandRef.current, { x: "-100vw", opacity: 0 }, { x: "0%", y: isMobileLayout ? "34vh" : "30vh", scale: 1, opacity: 1, duration: 1.5, ease: "power2.inOut" }, 8.85)
       } else {
-        tl.to(serverIslandRef.current, { x: 100, y: -10, scale: 1.02, opacity: 1, duration: 1.35, ease: "power3.inOut" }, 9.75 + t)
-        tl.to(creatorIslandRef.current, { x: -100, y: 10, scale: 1.02, opacity: 1, duration: 1.35, ease: "power3.inOut" }, 9.75 + t)
+        tl.to(serverIslandRef.current, { x: 100, y: -10, scale: 1.02, opacity: 1, duration: 1.35, ease: "power3.inOut" }, 8.6)
+        tl.to(creatorIslandRef.current, { x: -100, y: 10, scale: 1.02, opacity: 1, duration: 1.35, ease: "power3.inOut" }, 8.6)
       }
 
       // Data connector reveal
@@ -205,30 +175,30 @@ export default function HeroBridge({ skipTestimonials = false }: { skipTestimoni
         const connectorPackets = getConnectorTargets(".connector-packet")
 
         if (connectorNodes.length || connectorLanes.length || connectorCore) {
-          tl.set(bridgeRef.current, { opacity: 1 }, 10.45 + t)
+          tl.set(bridgeRef.current, { opacity: 1 }, 9.3)
           if (connectorNodes.length) {
-            tl.fromTo(connectorNodes, { opacity: 0, scale: 0.82 }, { opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "back.out(1.7)" }, 10.55 + t)
+            tl.fromTo(connectorNodes, { opacity: 0, scale: 0.82 }, { opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "back.out(1.7)" }, 9.4)
           }
           if (connectorLanes.length) {
-            tl.fromTo(connectorLanes, { opacity: 0, y: 14, scaleY: 0.92 }, { opacity: 1, y: 0, scaleY: 1, duration: 0.42, stagger: 0.07, ease: "power2.out" }, 10.95 + t)
+            tl.fromTo(connectorLanes, { opacity: 0, y: 14, scaleY: 0.92 }, { opacity: 1, y: 0, scaleY: 1, duration: 0.42, stagger: 0.07, ease: "power2.out" }, 9.8)
           }
           if (connectorCore) {
-            tl.fromTo(connectorCore, { opacity: 0, scale: 0.74, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power2.out" }, 10.72 + t)
+            tl.fromTo(connectorCore, { opacity: 0, scale: 0.74, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power2.out" }, 9.57)
           }
           if (connectorPackets.length) {
-            tl.fromTo(connectorPackets, { opacity: 0 }, { opacity: 1, duration: 0.25, stagger: 0.05, ease: "power1.out" }, 11.08 + t)
+            tl.fromTo(connectorPackets, { opacity: 0 }, { opacity: 1, duration: 0.25, stagger: 0.05, ease: "power1.out" }, 9.93)
           }
         }
       } else {
-        tl.fromTo(bridgeRef.current, { opacity: 0 }, { opacity: 1, duration: 1.2, ease: "power2.out" }, 11.2 + t)
+        tl.fromTo(bridgeRef.current, { opacity: 0 }, { opacity: 1, duration: 1.2, ease: "power2.out" }, 10.05)
       }
 
       // Fade out islands + connector before overlay
-      tl.to([serverIslandRef.current, creatorIslandRef.current], { opacity: 0, y: -8, duration: 0.75, ease: "power2.in" }, 12.45 + t)
-      tl.to(bridgeRef.current, { opacity: 0, y: 18, duration: 0.45, ease: "power2.in" }, 12.55 + t)
+      tl.to([serverIslandRef.current, creatorIslandRef.current], { opacity: 0, y: -8, duration: 0.65, ease: "power2.in" }, 11.3)
+      tl.to(bridgeRef.current, { opacity: 0, y: 18, duration: 0.45, ease: "power2.in" }, 11.4)
 
       // Final overlay
-      tl.fromTo(overlayRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, 12.8 + t)
+      tl.fromTo(overlayRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 11.75)
 
       // After GSAP pin spacer is set up, handle cross-page scroll target
       ScrollTrigger.refresh()
@@ -253,20 +223,25 @@ export default function HeroBridge({ skipTestimonials = false }: { skipTestimoni
       }
       ctx.revert()
     }
-  }, [isMobileLayout, isStackedLayout, layoutMode, prefersReducedMotion, skipTestimonials])
+  }, [isMobileLayout, isStackedLayout, layoutMode, prefersReducedMotion])
 
   return (
     <section ref={containerRef} className={styles.heroContainer}>
       <div className={styles.heroViewport}>
         <div ref={gridPatternRef} className={styles.gridPattern} aria-hidden="true" />
         <div ref={introGlowRef} className={styles.introGlow} aria-hidden="true" />
-
-        {/* Testimonials */}
-        {!skipTestimonials && <HeroTestimonials onRefsReady={handleTestimonialRefs} />}
+        <Particles
+          className="absolute inset-0 opacity-40 mix-blend-screen pointer-events-none z-[1]"
+          quantity={80}
+          ease={70}
+          size={1}
+          staticity={40}
+          color="#10B981"
+          refresh
+        />
 
         {/* Intro panel */}
         <div ref={logoRef} className={styles.logoWrapper}>
-          <p className={styles.heroTag}>Verified Professional Brokerage</p>
           <h1 className={styles.heroTitle}>Structured Sponsorships for the Minecraft Ecosystem</h1>
           <p className={styles.heroBody}>
             Professional campaign brokerage for creators and server owners. We manage negotiation,

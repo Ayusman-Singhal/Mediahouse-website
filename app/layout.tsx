@@ -22,7 +22,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mediahouse.gg"),
+  metadataBase: new URL("https://media-house.studio"),
   title: "MediaHouse - Managed Sponsorship Brokerage",
   description:
     "MediaHouse connects growth-focused server operators with performance-driven gaming creators. Structured sponsorships, managed negotiation, and professional campaign delivery.",
@@ -36,14 +36,16 @@ export const metadata: Metadata = {
     description:
       "MediaHouse connects growth-focused server operators with performance-driven gaming creators. Structured sponsorships, managed negotiation, and professional campaign delivery.",
     type: "website",
-    url: "https://mediahouse.gg",
+    url: "https://media-house.studio",
     siteName: "MediaHouse",
+    images: ["/assets/MediaHouseLogo.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "MediaHouse - Managed Sponsorship Brokerage",
     description:
       "MediaHouse connects growth-focused server operators with performance-driven gaming creators. Structured sponsorships, managed negotiation, and professional campaign delivery.",
+    images: ["/assets/MediaHouseLogo.png"],
   },
 }
 

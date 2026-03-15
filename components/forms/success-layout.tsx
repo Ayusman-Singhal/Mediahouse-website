@@ -31,7 +31,7 @@ export default function SuccessLayout({ title, description }: SuccessLayoutProps
         <p className="mb-10 text-base leading-relaxed text-text-muted">{description}</p>
 
         <a
-          href="https://discord.gg/5fzmDxmXrD"
+          href="https://discord.gg/RfQuKxgaR7"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex w-full items-center justify-center gap-3 rounded-lg bg-discord px-8 py-4 font-heading text-base font-semibold text-white transition-all duration-250 hover:-translate-y-px hover:bg-[#4752C4] hover:shadow-[0_6px_24px_rgba(88,101,242,0.3)]"

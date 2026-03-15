@@ -1,13 +1,13 @@
 import type { Metadata } from "next"
 import dynamic from "next/dynamic"
-import RobloxHero from "@/components/blocks/roblox/roblox-hero"
+import RobloxHeroV2 from "@/components/blocks/roblox-v2/roblox-hero-v2"
 import Footer from "@/components/blocks/footer"
 
-const AuthoritySection = dynamic(() => import("@/components/blocks/roblox/authority-section"), { ssr: true })
-const ForServerOwners = dynamic(() => import("@/components/blocks/roblox/for-server-owners"), { ssr: true })
-const ForCreators = dynamic(() => import("@/components/blocks/roblox/for-creators"), { ssr: true })
-const CampaignProcess = dynamic(() => import("@/components/blocks/roblox/campaign-process"), { ssr: true })
-const FinalCTA = dynamic(() => import("@/components/blocks/roblox/final-cta"), { ssr: true })
+
+const ServerOwnersSection = dynamic(() => import("@/components/blocks/roblox-v2/server-owners-section"), { ssr: true })
+const CreatorsSection = dynamic(() => import("@/components/blocks/roblox-v2/creators-section"), { ssr: true })
+const ProcessTimeline = dynamic(() => import("@/components/blocks/roblox-v2/process-timeline"), { ssr: true })
+const FinalCTAV2 = dynamic(() => import("@/components/blocks/roblox-v2/final-cta-v2"), { ssr: true })
 
 export const metadata: Metadata = {
   title: "Roblox - MediaHouse",
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
 
 export default function RobloxPage() {
   return (
-    <main>
-      <RobloxHero />
-      <AuthoritySection />
-      <ForServerOwners />
-      <ForCreators />
-      <CampaignProcess />
-      <FinalCTA />
+    <main className="bg-[#0F0F0F] text-white overflow-hidden selection:bg-[#FF6B35]/30">
+      <RobloxHeroV2 />
+
+      <ServerOwnersSection />
+      <CreatorsSection />
+      <ProcessTimeline />
+      <FinalCTAV2 />
       <Footer />
     </main>
   )
