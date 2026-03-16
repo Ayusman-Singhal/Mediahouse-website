@@ -15,6 +15,7 @@ export default function HeroHome() {
   const headlineRef = useRef<HTMLDivElement>(null)
   const testimonialRefs = useRef<HTMLDivElement[]>([])
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+  const [isMobileLayout, setIsMobileLayout] = useState(false)
 
   const handleTestimonialRefs = useCallback((refs: HTMLDivElement[]) => {
     testimonialRefs.current = refs
@@ -33,7 +34,32 @@ export default function HeroHome() {
   }, [])
 
   useEffect(() => {
+    let frameId = 0
+
+    const updateLayout = () => {
+      setIsMobileLayout(window.innerWidth < 768)
+    }
+
+    const handleResize = () => {
+      cancelAnimationFrame(frameId)
+      frameId = window.requestAnimationFrame(updateLayout)
+    }
+
+    updateLayout()
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      cancelAnimationFrame(frameId)
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
+
+  useEffect(() => {
     const ctx = gsap.context(() => {
+      const logoLift = isMobileLayout ? -46 : -68
+      const headlineFromY = isMobileLayout ? 26 : 40
+      const headlineToY = isMobileLayout ? -14 : -40
+
       if (prefersReducedMotion) {
         const elements = [
           ...testimonialRefs.current,
@@ -78,15 +104,15 @@ export default function HeroHome() {
 
       // Scene 2: Glow fades, logo pulses
       tl.to(introGlowRef.current, { opacity: 0, scale: 1.14, duration: 0.8, ease: "power2.inOut" }, 1.15)
-      tl.to(logoRef.current, { y: -68, duration: 0.6, ease: "power2.out" }, 1.2)
+      tl.to(logoRef.current, { y: logoLift, duration: 0.6, ease: "power2.out" }, 1.2)
 
       // Scene 3: Headline fades in below logo
-      tl.fromTo(headlineRef.current, { opacity: 0, y: 40 }, { opacity: 1, y: -40, duration: 0.8, ease: "power2.out" }, 2.0)
+      tl.fromTo(headlineRef.current, { opacity: 0, y: headlineFromY }, { opacity: 1, y: headlineToY, duration: 0.8, ease: "power2.out" }, 2.0)
 
     }, containerRef)
 
     return () => ctx.revert()
-  }, [prefersReducedMotion])
+  }, [isMobileLayout, prefersReducedMotion])
 
   return (
     <section
@@ -110,7 +136,7 @@ export default function HeroHome() {
         />
 
         {/* Testimonials */}
-        <HeroTestimonials onRefsReady={handleTestimonialRefs} />
+        <HeroTestimonials onRefsReady={handleTestimonialRefs} isCompact={isMobileLayout} />
 
         {/* Logo */}
         <div
@@ -132,13 +158,14 @@ export default function HeroHome() {
         {/* Headline that fades in after testimonials scatter */}
         <div
           ref={headlineRef}
-          className="absolute z-[20] text-center px-6 opacity-0"
-          style={{ bottom: "12%", left: "50%", transform: "translateX(-50%)", maxWidth: "720px", width: "90%" }}
+          className="absolute z-[20] left-1/2 -translate-x-1/2 bottom-[8%] sm:bottom-[10%] md:bottom-[12%] text-center px-4 sm:px-6 opacity-0 w-[92vw] max-w-[720px]"
         >
-          <h1 className="font-heading text-[clamp(1.8rem,5vw,3.5rem)] font-extrabold leading-[1.1] tracking-[-0.02em] mb-3">
-            Gaming Sponsorships,<br />Managed&nbsp;Professionally.
+          <h1 className="font-heading text-[clamp(1.65rem,5vw,3.5rem)] font-extrabold leading-[1.1] tracking-[-0.02em] mb-3 text-balance">
+            Gaming Sponsorships,
+            <br className="hidden sm:block" />
+            <span className="sm:ml-0"> Managed&nbsp;Professionally.</span>
           </h1>
-          <p className="text-[clamp(0.9rem,1.8vw,1.1rem)] leading-[1.65] tracking-[0.01em] text-text-muted opacity-87">
+          <p className="mx-auto text-[clamp(0.9rem,1.8vw,1.1rem)] leading-[1.65] tracking-[0.01em] text-text-muted opacity-87 max-w-[62ch]">
             Connecting gaming creators with game owners across Minecraft, Roblox, and more.
           </p>
         </div>

@@ -75,20 +75,22 @@ function generateLayout(index: number, total: number, random: () => number): Car
 // ─── Component ─────────────────────────────────────────
 export default function HeroTestimonials({
   onRefsReady,
+  isCompact,
 }: {
   onRefsReady: (refs: HTMLDivElement[]) => void
+  isCompact: boolean
 }) {
   const cardRefs = useRef<HTMLDivElement[]>([])
 
   const data = useMemo(() => {
     const random = createSeededRandom(20260309)
-    const count = 6 + Math.floor(random() * 3) // 6–8
+    const count = isCompact ? 5 : 6 + Math.floor(random() * 3) // mobile: 5, desktop: 6-8
     const testimonials = getRandomTestimonials(TESTIMONIAL_POOL, count, random)
     return testimonials.map((t, i) => ({
       ...t,
       layout: generateLayout(i, count, random),
     }))
-  }, [])
+  }, [isCompact])
 
   useEffect(() => {
     if (cardRefs.current.length > 0) {
@@ -119,8 +121,8 @@ export default function HeroTestimonials({
             className="flex items-center gap-3 px-4 py-3 rounded-xl border border-white/[0.08] backdrop-blur-xl shadow-2xl"
             style={{
               background: "rgba(20, 20, 20, 0.85)",
-              maxWidth: "280px",
-              minWidth: "220px",
+              maxWidth: isCompact ? "230px" : "280px",
+              minWidth: isCompact ? "180px" : "220px",
             }}
           >
             {/* Avatar circle */}

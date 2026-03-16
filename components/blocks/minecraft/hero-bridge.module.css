@@ -350,7 +350,10 @@
   }
   .islandLeft,
   .islandRight {
+    left: 50%;
+    right: auto;
     top: 26%;
+    transform: translate(-50%, -50%);
   }
   .textRight,
   .textLeft {

@@ -159,11 +159,11 @@ export default function HeroBridge() {
 
       // Scene 7: Both islands come together + data connector
       if (isStackedLayout) {
-        tl.to(creatorIslandRef.current, { x: "0%", y: isMobileLayout ? "-15vh" : "4vh", scale: 1, duration: 1.5, ease: "power2.inOut" }, 8.85)
-        tl.fromTo(serverIslandRef.current, { x: "-100vw", opacity: 0 }, { x: "0%", y: isMobileLayout ? "34vh" : "30vh", scale: 1, opacity: 1, duration: 1.5, ease: "power2.inOut" }, 8.85)
+        tl.to(creatorIslandRef.current, { x: "0%", y: isMobileLayout ? "-1vh" : "-2vh", scale: 1, duration: 1.5, ease: "power2.inOut" }, 8.85)
+        tl.fromTo(serverIslandRef.current, { x: "-100vw", opacity: 0 }, { x: "0%", y: isMobileLayout ? "48vh" : "52vh", scale: 1, opacity: 1, duration: 1.5, ease: "power2.inOut" }, 8.85)
       } else {
-        tl.to(serverIslandRef.current, { x: 100, y: -10, scale: 1.02, opacity: 1, duration: 1.35, ease: "power3.inOut" }, 8.6)
-        tl.to(creatorIslandRef.current, { x: -100, y: 10, scale: 1.02, opacity: 1, duration: 1.35, ease: "power3.inOut" }, 8.6)
+        tl.to(serverIslandRef.current, { x: 100, y: -25, scale: 1.02, opacity: 1, duration: 1.35, ease: "power3.inOut" }, 8.6)
+        tl.to(creatorIslandRef.current, { x: -100, y: -25, scale: 1.02, opacity: 1, duration: 1.35, ease: "power3.inOut" }, 8.6)
       }
 
       // Data connector reveal
