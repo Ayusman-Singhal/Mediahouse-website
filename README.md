@@ -76,7 +76,3 @@ This project is ready to deploy on **Vercel**:
 2. Import it in Vercel
 3. Add the same environment variables from `.env.local`
 4. Deploy
-
-## License
-
-No license file is currently included in this repository.
