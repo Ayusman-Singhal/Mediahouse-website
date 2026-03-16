@@ -7,6 +7,9 @@ node_modules/
 # Production build
 out/
 
+# TypeScript build cache
+tsconfig.tsbuildinfo
+
 # Environment files
 .env
 .env.local
