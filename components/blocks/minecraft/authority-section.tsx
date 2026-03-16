@@ -14,16 +14,6 @@ export default function AuthoritySection() {
           campaigns, and oversee deliverables with professional control.
         </p>
       </div>
-      <div className="h-12 py-12">
-        <div className="flex gap-8 justify-center flex-wrap">
-          <Button asChild variant="ctaPrimary" size="cta" className="duration-300">
-            <Link href="/apply/creator">Apply as Creator</Link>
-          </Button>
-          <Button asChild variant="ctaOutline" size="cta" className="duration-300">
-            <Link href="/apply/server-owner">Submit Promotion Request</Link>
-          </Button>
-        </div>
-      </div>
     </section>
   )
 }
