@@ -11,14 +11,10 @@ import Sheet from "@/components/ui/sheet"
 import TOSContent from "@/components/legal/tos-content"
 import FormError from "@/components/forms/form-error"
 
-function isValidYouTubeUrl(url: string): boolean {
+function isValidProfileUrl(url: string): boolean {
   try {
     const parsed = new URL(url)
-    return (
-      parsed.hostname === "youtube.com" ||
-      parsed.hostname === "www.youtube.com" ||
-      parsed.hostname === "m.youtube.com"
-    )
+    return parsed.protocol === "http:" || parsed.protocol === "https:"
   } catch {
     return false
   }
@@ -57,9 +53,9 @@ export default function CreatorForm() {
       return
     }
 
-    if (!isValidYouTubeUrl(formData.youtube_url)) {
+    if (!isValidProfileUrl(formData.youtube_url)) {
       setSubmitStatus("error")
-      setErrorMessage("Please enter a valid YouTube URL (e.g. https://youtube.com/@yourchannel).")
+      setErrorMessage("Please enter a valid profile or channel URL.")
       return
     }
 
@@ -152,16 +148,16 @@ export default function CreatorForm() {
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="youtube_url" className="font-heading text-[0.8125rem] sm:text-sm font-semibold text-white">
-          YouTube Channel URL <span className="text-brand">*</span>
+          Channel or Profile URL <span className="text-brand">*</span>
         </Label>
         <Input
           id="youtube_url"
           type="url"
           value={formData.youtube_url}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange("youtube_url", e.target.value)}
-          placeholder="https://youtube.com/@yourchannel"
+          placeholder="https://tiktok.com/@yourhandle"
         />
-        <p className="text-[0.75rem] sm:text-xs text-text-subdued">Must be a youtube.com URL</p>
+        <p className="text-[0.75rem] sm:text-xs text-text-subdued">TikTok, Twitch, Instagram, YouTube, and other platforms are accepted</p>
       </div>
 
       <div className="flex flex-col gap-2">
