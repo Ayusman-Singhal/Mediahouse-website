@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
 export default function AuthoritySection() {
   return (
     <section id="authority" className="w-full py-16 sm:py-24 md:py-30 px-6 relative">

@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import { Lexend_Deca, Outfit } from "next/font/google"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css"
 import Header from "@/components/blocks/header"
 
@@ -64,6 +66,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Header />
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

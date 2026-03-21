@@ -67,20 +67,15 @@ export default function HeroBridge() {
 
     updateReducedMotionPreference()
 
-    if (typeof mediaQuery.addEventListener === "function") {
-      mediaQuery.addEventListener("change", updateReducedMotionPreference)
-      return () => mediaQuery.removeEventListener("change", updateReducedMotionPreference)
-    }
-
-    mediaQuery.addListener(updateReducedMotionPreference)
-    return () => mediaQuery.removeListener(updateReducedMotionPreference)
+    mediaQuery.addEventListener("change", updateReducedMotionPreference)
+    return () => mediaQuery.removeEventListener("change", updateReducedMotionPreference)
   }, [])
 
   useEffect(() => {
     if (layoutMode === null) return
 
     const ctx = gsap.context(() => {
-      if (prefersReducedMotion) {
+      if (!prefersReducedMotion) {
         const decorativeElements = [
           introGlowRef.current,
           logoRef.current,
@@ -98,7 +93,13 @@ export default function HeroBridge() {
         }
 
         if (overlayRef.current) {
-          gsap.set(overlayRef.current, { autoAlpha: 1, y: 0 })
+          gsap.set(overlayRef.current, { 
+            autoAlpha: 1, 
+            y: 0,
+            top: "50%",
+            bottom: "auto",
+            yPercent: -50
+          })
         }
 
         return
@@ -154,19 +155,11 @@ export default function HeroBridge() {
         5.25
       )
 
-      // Scene 6: Creator text fades out
+      // Scene 6: Creator text & island fade out
       tl.to(creatorTextRef.current, { opacity: 0, x: -44, filter: "blur(10px)", duration: 0.7, ease: "power2.in" }, 7.4)
+      tl.to(creatorIslandRef.current, { opacity: 0, x: isMobileLayout ? "100vw" : 140, y: 16, scale: 0.98, duration: 0.85, ease: "power2.in" }, 7.55)
 
-      // Scene 7: Both islands come together + data connector
-      if (isStackedLayout) {
-        tl.to(creatorIslandRef.current, { x: "0%", y: isMobileLayout ? "-1vh" : "-2vh", scale: 1, duration: 1.5, ease: "power2.inOut" }, 8.85)
-        tl.fromTo(serverIslandRef.current, { x: "-100vw", opacity: 0 }, { x: "0%", y: isMobileLayout ? "48vh" : "52vh", scale: 1, opacity: 1, duration: 1.5, ease: "power2.inOut" }, 8.85)
-      } else {
-        tl.to(serverIslandRef.current, { x: 100, y: -25, scale: 1.02, opacity: 1, duration: 1.35, ease: "power3.inOut" }, 8.6)
-        tl.to(creatorIslandRef.current, { x: -100, y: -25, scale: 1.02, opacity: 1, duration: 1.35, ease: "power3.inOut" }, 8.6)
-      }
-
-      // Data connector reveal
+      // Scene 7: Data connector reveal (with built-in islands now perfectly scaled)
       if (!isStackedLayout) {
         const getConnectorTargets = (selector: string) => Array.from(bridgeRef.current?.querySelectorAll(selector) ?? [])
         const connectorNodes = getConnectorTargets(".connector-node")
@@ -175,29 +168,30 @@ export default function HeroBridge() {
         const connectorPackets = getConnectorTargets(".connector-packet")
 
         if (connectorNodes.length || connectorLanes.length || connectorCore) {
-          tl.set(bridgeRef.current, { opacity: 1 }, 9.3)
+          tl.set(bridgeRef.current, { opacity: 1 }, 8.4)
           if (connectorNodes.length) {
-            tl.fromTo(connectorNodes, { opacity: 0, scale: 0.82 }, { opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "back.out(1.7)" }, 9.4)
+            tl.set(connectorNodes, { transformOrigin: "50% 50%" })
+            tl.fromTo(connectorNodes, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.85, stagger: 0.15, ease: "back.out(1.5)" }, 8.6)
           }
           if (connectorLanes.length) {
-            tl.fromTo(connectorLanes, { opacity: 0, y: 14, scaleY: 0.92 }, { opacity: 1, y: 0, scaleY: 1, duration: 0.42, stagger: 0.07, ease: "power2.out" }, 9.8)
+            tl.fromTo(connectorLanes, { opacity: 0, y: 14, scaleY: 0.92 }, { opacity: 1, y: 0, scaleY: 1, duration: 0.42, stagger: 0.07, ease: "power2.out" }, 9.2)
           }
           if (connectorCore) {
-            tl.fromTo(connectorCore, { opacity: 0, scale: 0.74, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power2.out" }, 9.57)
+            tl.fromTo(connectorCore, { opacity: 0, scale: 0.74, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power2.out" }, 8.97)
           }
           if (connectorPackets.length) {
-            tl.fromTo(connectorPackets, { opacity: 0 }, { opacity: 1, duration: 0.25, stagger: 0.05, ease: "power1.out" }, 9.93)
+            tl.fromTo(connectorPackets, { opacity: 0 }, { opacity: 1, duration: 0.25, stagger: 0.05, ease: "power1.out" }, 9.33)
           }
         }
       } else {
-        tl.fromTo(bridgeRef.current, { opacity: 0 }, { opacity: 1, duration: 1.2, ease: "power2.out" }, 10.05)
+        tl.fromTo(bridgeRef.current, { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 1.2, ease: "power2.out" }, 8.6)
       }
 
-      // Fade out islands + connector before overlay
-      tl.to([serverIslandRef.current, creatorIslandRef.current], { opacity: 0, y: -8, duration: 0.65, ease: "power2.in" }, 11.3)
+      // Fade out connector before overlay
       tl.to(bridgeRef.current, { opacity: 0, y: 18, duration: 0.45, ease: "power2.in" }, 11.4)
 
       // Final overlay
+      tl.set(overlayRef.current, { top: "50%", bottom: "auto", yPercent: -50 }, 0)
       tl.fromTo(overlayRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 11.75)
 
       // After GSAP pin spacer is set up, handle cross-page scroll target

@@ -85,6 +85,38 @@ function ConnectorCore({ cx, cy, outerRadius, middleRadius, innerRadius, ringRad
   )
 }
 
+function IslandNode({ cx, cy, href, size, label, gradientId }: { cx: number, cy: number, href: string, size: number, label: string, gradientId?: string }) {
+  return (
+    <g className="connector-node">
+      {/* Background glow Optional */}
+      <circle cx={cx} cy={cy} r={size * 0.25} fill="rgba(255,255,255,0.03)" filter="url(#connector-core-glow)" />
+      {/* Image */}
+      <image
+        href={href}
+        x={cx - size / 2}
+        y={cy - size / 2}
+        width={size}
+        height={size}
+        preserveAspectRatio="xMidYMid meet"
+        style={{ filter: "drop-shadow(0 24px 64px rgba(0, 0, 0, 0.6))" }}
+      />
+      {/* Label under image */}
+      <text
+        x={cx}
+        y={cy + size / 2 + 10}
+        textAnchor="middle"
+        fill={gradientId ? `url(#${gradientId})` : "#fff"}
+        fontSize="16"
+        fontWeight="700"
+        letterSpacing="0.25em"
+        style={{ textTransform: "uppercase", filter: "drop-shadow(0 4px 12px rgba(255, 255, 255, 0.25))" }}
+      >
+        {label}
+      </text>
+    </g>
+  )
+}
+
 function DesktopDataConnector() {
   return (
     <div className="connector-scene absolute inset-0 flex items-center justify-center overflow-hidden" aria-hidden="true">
@@ -129,6 +161,11 @@ function DesktopDataConnector() {
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
+
+          <linearGradient id="label-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="rgba(255, 255, 255, 0.9)" />
+            <stop offset="100%" stopColor="rgba(255, 255, 255, 0.4)" />
+          </linearGradient>
         </defs>
 
         {DESKTOP_LANES.map((lane, index) => {
@@ -151,8 +188,8 @@ function DesktopDataConnector() {
           )
         })}
 
-        <ConnectorNode cx={250} cy={350} baseRadius={18} centerRadius={6} ringRadius={46} strokeWidth={1.2} />
-        <ConnectorNode cx={950} cy={350} baseRadius={18} centerRadius={6} ringRadius={46} strokeWidth={1.2} />
+        <IslandNode cx={280} cy={450} href="/assets/server-owner-island.png" size={500} label="SERVER OWNERS" gradientId="label-gradient" />
+        <IslandNode cx={1180} cy={450} href="/assets/creator-island.png" size={500} label="CREATORS" gradientId="label-gradient" />
         <ConnectorCore cx={600} cy={350} outerRadius={56} middleRadius={32} innerRadius={15} ringRadius={78} strokeWidth={1.2} fillId="connector-core-fill" filterId="connector-core-glow" />
       </svg>
     </div>
@@ -203,6 +240,11 @@ function MobilePathBridge() {
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
+
+          <linearGradient id="label-gradient-vertical" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="rgba(255, 255, 255, 0.9)" />
+            <stop offset="100%" stopColor="rgba(255, 255, 255, 0.4)" />
+          </linearGradient>
         </defs>
 
         <g transform="translate(120 300) scale(1.2) translate(-120 -300)">
@@ -226,8 +268,8 @@ function MobilePathBridge() {
             )
           })}
 
-          <ConnectorNode cx={120} cy={22} baseRadius={23} centerRadius={8.2} ringRadius={60} strokeWidth={1.45} />
-          <ConnectorNode cx={120} cy={578} baseRadius={23} centerRadius={8.2} ringRadius={60} strokeWidth={1.45} />
+          <IslandNode cx={120} cy={0} href="/assets/server-owner-island.png" size={260} label="SERVER OWNERS" gradientId="label-gradient-vertical" />
+          <IslandNode cx={120} cy={600} href="/assets/creator-island.png" size={260} label="CREATORS" gradientId="label-gradient-vertical" />
           <ConnectorCore cx={120} cy={300} outerRadius={72} middleRadius={43} innerRadius={20} ringRadius={104} strokeWidth={1.45} fillId="connector-core-fill-vertical" filterId="connector-core-glow-vertical" />
         </g>
       </svg>
