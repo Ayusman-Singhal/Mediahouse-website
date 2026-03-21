@@ -5,18 +5,19 @@ const cases = [
     performance: "Delivered on schedule, exceeded engagement targets",
     status: "Completed",
   },
+    {
+    type: "Clubcraft Dedicated Video Promotion",
+    creatorSize: "450k Subscribers",
+    performance: "Campaign completed, Increase in player engagement and revenue",
+    status: "Completed",
+  },
   {
     type: "Fakepixel Monthly Youtube Reward Pool",
     creatorSize: "45k Combined",
     performance: "Ongoing campaign, early indicators show strong engagement",
     status: "Ongoing",
   },
-  {
-    type: "Clubcraft Dedicated Video Promotion",
-    creatorSize: "450k Subscribers",
-    performance: "Campaign launched, initial results show promising engagement",
-    status: "Ongoing",
-  },
+
 ]
 
 export default function CaseStudies() {

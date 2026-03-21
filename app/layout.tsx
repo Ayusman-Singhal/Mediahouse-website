@@ -29,6 +29,9 @@ export const metadata: Metadata = {
   description:
     "MediaHouse connects growth-focused server operators with performance-driven gaming creators. Structured sponsorships, managed negotiation, and professional campaign delivery.",
   robots: "index, follow",
+  verification: {
+    google: "30ef55376bca769c",
+  },
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",

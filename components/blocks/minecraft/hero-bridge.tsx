@@ -75,7 +75,7 @@ export default function HeroBridge() {
     if (layoutMode === null) return
 
     const ctx = gsap.context(() => {
-      if (!prefersReducedMotion) {
+      if (prefersReducedMotion) {
         const decorativeElements = [
           introGlowRef.current,
           logoRef.current,
