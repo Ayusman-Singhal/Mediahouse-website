@@ -2,9 +2,23 @@ import type { Metadata } from "next"
 import ServerOwnerForm from "@/components/forms/server-owner-form"
 
 export const metadata: Metadata = {
-  title: "Submit Campaign - MediaHouse",
+  title: "Hire YouTubers for Minecraft & Roblox Promotion",
   description:
-    "Submit a campaign request to MediaHouse. We match your server with vetted gaming creators for structured, performance-driven sponsorships.",
+    "Submit a campaign request to MediaHouse. We match your Minecraft server or Roblox game with vetted gaming creators for structured, performance-driven growth.",
+  openGraph: {
+    title: "Hire YouTubers for Game Promotion | MediaHouse",
+    description: "Match your Minecraft server or Roblox game with vetted gaming creators for performance-driven growth.",
+    url: "https://media-house.studio/apply/server-owner",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire YouTubers for Game Promotion | MediaHouse",
+    description: "Match your Minecraft server or Roblox game with vetted gaming creators for performance-driven growth.",
+  },
+  alternates: {
+    canonical: "https://media-house.studio/apply/server-owner",
+  },
+  keywords: ["hire YouTubers for Minecraft", "Minecraft server campaign", "Roblox game promotion campaign", "gaming influencer hire"],
 }
 
 export default function ServerOwnerPage() {

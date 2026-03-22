@@ -12,9 +12,23 @@ const WhyMediaHouse = dynamic(() => import("@/components/blocks/minecraft/why-me
 const FinalCTA = dynamic(() => import("@/components/blocks/minecraft/final-cta"), { ssr: true })
 
 export const metadata: Metadata = {
-  title: "Minecraft - MediaHouse",
+  title: "Minecraft Server Promotion & Sponsorship Agency",
   description:
-    "Managed sponsorship brokerage for Minecraft. We connect server operators with gaming creators for structured, performance-driven campaigns.",
+    "Promote your Minecraft server with top gaming creators. MediaHouse creates performance-driven campaigns and structured sponsorships to grow your community.",
+  openGraph: {
+    title: "Minecraft Server Promotion Agency | MediaHouse",
+    description: "Promote your Minecraft server with top gaming creators. Performance-driven campaigns to grow your community.",
+    url: "https://media-house.studio/minecraft",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Minecraft Server Promotion Agency | MediaHouse",
+    description: "Promote your Minecraft server with top gaming creators. Performance-driven campaigns to grow your community.",
+  },
+  alternates: {
+    canonical: "https://media-house.studio/minecraft",
+  },
+  keywords: ["Minecraft server promotion", "Minecraft YouTuber sponsorship", "how to promote Minecraft server", "paid Minecraft creator campaigns", "Minecraft influencer marketing", "hire YouTubers for Minecraft"],
 }
 
 export default function MinecraftPage() {

@@ -146,6 +146,7 @@ export default function HeroHome() {
             width={200}
             height={200}
             priority
+            fetchPriority="high"
             sizes="(max-width: 768px) 120px, 150px"
             className="w-[clamp(150px,20vw,280px)] h-auto"
             style={{ filter: "drop-shadow(0 0 48px rgba(255,107,53,0.22))" }}

@@ -2,9 +2,23 @@ import type { Metadata } from "next"
 import CreatorForm from "@/components/forms/creator-form"
 
 export const metadata: Metadata = {
-  title: "Apply as Creator - MediaHouse",
+  title: "Get Paid Gaming Sponsorships | Apply as a Creator",
   description:
-    "Apply for creator representation with MediaHouse. We handle negotiation, campaign structuring, and business communication so you can focus on creating.",
+    "Get paid promotions for your YouTube or Twitch channel. Apply for creator representation with MediaHouse to get high-paying Minecraft and Roblox sponsorships.",
+  openGraph: {
+    title: "Get Paid Gaming Sponsorships | MediaHouse Creators",
+    description: "Get paid promotions for your channel. Apply for representation to get high-paying Minecraft and Roblox sponsorships.",
+    url: "https://media-house.studio/apply/creator",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Get Paid Gaming Sponsorships | MediaHouse Creators",
+    description: "Get paid promotions for your channel. Apply for representation to get high-paying Minecraft and Roblox sponsorships.",
+  },
+  alternates: {
+    canonical: "https://media-house.studio/apply/creator",
+  },
+  keywords: ["apply for gaming sponsorships", "creator sponsorship application", "get paid gaming promotions", "YouTuber sponsorship opportunities"],
 }
 
 export default function CreatorPage() {

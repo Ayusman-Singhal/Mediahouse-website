@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import Sheet from "@/components/ui/sheet"
 import TOSContent from "@/components/legal/tos-content"
 import PrivacyContent from "@/components/legal/privacy-content"
@@ -12,13 +13,15 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="w-full border-t border-white/[0.06] py-8 sm:py-10 px-6">
+      <footer className="w-full border-t border-white/[0.06] py-8 sm:py-10 px-6 mt-12 md:mt-0">
         <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6">
           <div className="flex items-center gap-3">
-            <Image src="/assets/MediaHouseLogo.png" alt="MediaHouse" width={28} height={28} sizes="28px" className="w-7 h-7 object-contain" />
+            <Image src="/assets/MediaHouseLogo.png" alt="" role="presentation" width={28} height={28} sizes="28px" className="w-7 h-7 object-contain" />
             <span className="font-heading text-base font-bold text-white">MediaHouse</span>
           </div>
-          <nav className="flex items-center gap-5 sm:gap-6">
+          <nav className="flex items-center gap-5 sm:gap-6 flex-wrap justify-center">
+            <Link href="/for-creators" className="text-sm text-text-muted hover:text-white transition-colors duration-200">For Creators</Link>
+            <Link href="/for-server-owners" className="text-sm text-text-muted hover:text-white transition-colors duration-200">For Server Owners</Link>
             <button
               onClick={() => setTosOpen(true)}
               className="text-sm text-text-muted hover:text-white transition-colors duration-200 cursor-pointer"

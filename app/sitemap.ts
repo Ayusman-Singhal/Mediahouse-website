@@ -2,49 +2,51 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://media-house.studio"
+  // Using a static date to avoid changing dates on every build, which is bad for SEO
+  const lastModDate = new Date("2026-03-22")
 
   return [
     {
       url: `${baseUrl}/`,
-      lastModified: new Date(),
+      lastModified: lastModDate,
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${baseUrl}/minecraft`,
-      lastModified: new Date(),
+      lastModified: lastModDate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/roblox`,
-      lastModified: new Date(),
+      lastModified: lastModDate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/apply/creator`,
-      lastModified: new Date(),
+      lastModified: lastModDate,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/apply/server-owner`,
-      lastModified: new Date(),
+      lastModified: lastModDate,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/apply/creator/success`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.4,
+      url: `${baseUrl}/for-creators`,
+      lastModified: lastModDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
     {
-      url: `${baseUrl}/apply/server-owner/success`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.4,
+      url: `${baseUrl}/for-server-owners`,
+      lastModified: lastModDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
   ]
 }

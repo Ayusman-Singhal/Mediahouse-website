@@ -10,9 +10,23 @@ const ProcessTimeline = dynamic(() => import("@/components/blocks/roblox-v2/proc
 const FinalCTAV2 = dynamic(() => import("@/components/blocks/roblox-v2/final-cta-v2"), { ssr: true })
 
 export const metadata: Metadata = {
-  title: "Roblox - MediaHouse",
+  title: "Roblox Game Promotion & Sponsorship Agency",
   description:
-    "Managed sponsorship brokerage for Roblox. We connect game owners with gaming creators for structured, performance-driven campaigns.",
+    "Get your Roblox game seen by millions. MediaHouse partners with top Roblox YouTubers and creators for structured, performance-driven game promotions.",
+  openGraph: {
+    title: "Roblox Game Promotion Agency | MediaHouse",
+    description: "Partner with top Roblox creators for performance-driven game promotion campaigns.",
+    url: "https://media-house.studio/roblox",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Roblox Game Promotion Agency | MediaHouse",
+    description: "Partner with top Roblox creators for performance-driven game promotion campaigns.",
+  },
+  alternates: {
+    canonical: "https://media-house.studio/roblox",
+  },
+  keywords: ["Roblox game promotion", "Roblox YouTuber sponsorship", "how to promote Roblox game", "paid Roblox creator campaigns", "Roblox influencer marketing", "hire YouTubers for Roblox"],
 }
 
 export default function RobloxPage() {
