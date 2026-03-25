@@ -75,6 +75,10 @@ export default function HeroBridge() {
     if (layoutMode === null) return
 
     const ctx = gsap.context(() => {
+      // Hide bridge and overlay via JS (removed inline CSS opacity:0 for SSR crawlability)
+      if (bridgeRef.current) gsap.set(bridgeRef.current, { opacity: 0 })
+      if (overlayRef.current) gsap.set(overlayRef.current, { opacity: 0 })
+
       if (prefersReducedMotion) {
         const decorativeElements = [
           introGlowRef.current,
@@ -283,15 +287,16 @@ export default function HeroBridge() {
         </div>
 
         {/* Data Connector (replaces old bridge) */}
-        <div ref={bridgeRef} className="absolute inset-0 z-[4]" style={{ opacity: 0 }}>
+        <div ref={bridgeRef} className="absolute inset-0 z-[4]">
           <DataConnector isVertical={Boolean(isStackedLayout)} />
         </div>
 
         {/* Final Overlay */}
-        <div ref={overlayRef} className={styles.overlay}>
-          <h1 className="font-heading text-[clamp(2rem,6vw,4.5rem)] font-extrabold leading-[1.1] tracking-[-0.02em] mb-4 opacity-100">
+        <div ref={overlayRef} className={styles.overlay}
+             style={{ opacity: 1 }}>
+          <h2 className="font-heading text-[clamp(2rem,6vw,4.5rem)] font-extrabold leading-[1.1] tracking-[-0.02em] mb-4 opacity-100">
             Structured Sponsorships for Gaming Creators &amp; Server Owners
-          </h1>
+          </h2>
           <p className="text-[clamp(0.95rem,2vw,1.125rem)] leading-[1.65] tracking-[0.01em] text-text-muted mb-7 opacity-87">
             MediaHouse manages negotiation, execution, and campaign delivery from start to finish.
           </p>

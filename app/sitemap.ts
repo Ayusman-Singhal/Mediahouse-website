@@ -3,7 +3,8 @@ import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://media-house.studio"
   // Using a static date to avoid changing dates on every build, which is bad for SEO
-  const lastModDate = new Date("2026-03-22")
+  // Update this date when content changes significantly
+  const lastModDate = new Date("2026-03-24")
 
   return [
     {
@@ -47,6 +48,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: lastModDate,
       changeFrequency: 'weekly',
       priority: 0.8,
-    },
+    }
   ]
 }

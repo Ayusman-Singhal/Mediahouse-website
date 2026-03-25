@@ -57,6 +57,9 @@ export default function HeroHome() {
       const headlineFromY = isMobileLayout ? 26 : 40
       const headlineToY = isMobileLayout ? -14 : -40
 
+      // Hide headline via JS (was previously CSS opacity-0, removed for SSR crawlability)
+      if (headlineRef.current) gsap.set(headlineRef.current, { opacity: 0 })
+
       if (prefersReducedMotion) {
         const elements = [
           ...testimonialRefs.current,
@@ -156,7 +159,7 @@ export default function HeroHome() {
         {/* Headline that fades in after testimonials scatter */}
         <div
           ref={headlineRef}
-          className="absolute z-[20] left-1/2 -translate-x-1/2 bottom-[8%] sm:bottom-[10%] md:bottom-[12%] text-center px-4 sm:px-6 opacity-0 w-[92vw] max-w-[720px]"
+          className="absolute z-[20] left-1/2 -translate-x-1/2 bottom-[8%] sm:bottom-[10%] md:bottom-[12%] text-center px-4 sm:px-6 w-[92vw] max-w-[720px]"
         >
           <h1 className="font-heading text-[clamp(1.65rem,5vw,3.5rem)] font-extrabold leading-[1.1] tracking-[-0.02em] mb-3 text-balance">
             Gaming Sponsorships,

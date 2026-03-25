@@ -3,7 +3,7 @@ import Link from "next/link"
 import Footer from "@/components/blocks/footer"
 
 export const metadata: Metadata = {
-  title: "How to Get Paid Gaming Sponsorships | MediaHouse For Creators",
+  title: "How to Get Paid Gaming Sponsorships",
   description:
     "Learn how to get paid promotions for your YouTube or Twitch gaming channel. MediaHouse helps Minecraft and Roblox creators land high-paying sponsorships.",
   openGraph: {
@@ -33,7 +33,7 @@ const faqItems = [
   },
   {
     question: "Do I need a minimum subscriber count to apply?",
-    answer: "We evaluate creators based on multiple factors including engagement rate, content quality, and audience demographics — not just subscriber count. Creators of various sizes are welcome to apply."
+    answer: "We evaluate creators based on multiple factors including engagement rate, content quality, and audience demographics  not just subscriber count. Creators of various sizes are welcome to apply."
   },
   {
     question: "How long does it take to get matched with a sponsor?",
@@ -45,7 +45,7 @@ const faqItems = [
   },
   {
     question: "Do I have to accept every sponsorship offer?",
-    answer: "No. You have full control over which campaigns you accept. We send you a brief with the game details and rate — if it's not a fit, you simply decline. No obligations."
+    answer: "No. You have full control over which campaigns you accept. We send you a brief with the game details and rate  if it's not a fit, you simply decline. No obligations."
   }
 ]
 
@@ -78,8 +78,8 @@ export default function ForCreatorsPage() {
         <p className="text-xl text-text-muted mb-10 max-w-2xl mx-auto">
           We handle the emails, the contracts, and the rate negotiation, so you can focus on what you do best: creating content for your audience.
         </p>
-        <Link 
-          href="/apply/creator" 
+        <Link
+          href="/apply/creator"
           className="inline-block bg-[#FF6B35] hover:bg-[#FF8559] text-white px-8 py-4 rounded-full font-bold transition-all"
         >
           Apply for Representation
@@ -91,13 +91,13 @@ export default function ForCreatorsPage() {
         <div className="max-w-[800px] mx-auto w-full prose prose-invert lg:prose-lg font-body text-[#B0B0B0]">
           <h2 className="text-white font-heading font-bold text-3xl mb-6">How to get paid promotions as a YouTuber</h2>
           <p className="mb-6 leading-relaxed">
-            Finding high-quality gaming sponsorship opportunities can be time-consuming. From filtering out scam emails to figuring out what your 
-            channel is actually worth, the process is exhausting. At MediaHouse, we specialize in <strong>Minecraft sponsorships</strong> and 
+            Finding high-quality gaming sponsorship opportunities can be time-consuming. From filtering out scam emails to figuring out what your
+            channel is actually worth, the process is exhausting. At MediaHouse, we specialize in <strong>Minecraft sponsorships</strong> and
             <strong> Roblox game advertising</strong>, matching top creators with premium game owners across our{" "}
             <Link href="/minecraft" className="text-[#FF6B35] hover:underline">Minecraft</Link> and{" "}
             <Link href="/roblox" className="text-[#FF6B35] hover:underline">Roblox</Link> campaigns.
           </p>
-          
+
           <h3 className="text-white font-heading font-bold text-2xl mt-10 mb-4">Why work with a gaming sponsorship agency?</h3>
           <ul className="list-disc pl-6 mb-8 space-y-3">
             <li><strong>Rate Protection:</strong> We know the market rates. We ensure you never undercharge for a dedicated video, integration, or stream.</li>
@@ -108,13 +108,13 @@ export default function ForCreatorsPage() {
 
           <h3 className="text-white font-heading font-bold text-2xl mt-10 mb-4">How our process works</h3>
           <p className="mb-6 leading-relaxed">
-            Getting sponsored for gaming content shouldn&apos;t be complicated. Once you&apos;re accepted into the MediaHouse roster, we immediately begin matching 
-            your channel demographics with our active campaigns. When there&apos;s a fit, we send you a simple brief. If you like the game and the rate, you accept. 
+            Getting sponsored for gaming content shouldn&apos;t be complicated. Once you&apos;re accepted into the MediaHouse roster, we immediately begin matching
+            your channel demographics with our active campaigns. When there&apos;s a fit, we send you a simple brief. If you like the game and the rate, you accept.
             We handle the contract, you make the video, and we guarantee the payment.
           </p>
 
           <p className="mt-8">
-            Ready to turn your channel into a predictable business? 
+            Ready to turn your channel into a predictable business?
             <Link href="/apply/creator" className="text-[#FF6B35] hover:underline ml-2">Apply to join the MediaHouse roster today.</Link>
           </p>
         </div>
@@ -142,7 +142,7 @@ export default function ForCreatorsPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="flex-grow"></div>
       <Footer />
     </main>

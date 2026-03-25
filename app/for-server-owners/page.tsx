@@ -3,11 +3,11 @@ import Link from "next/link"
 import Footer from "@/components/blocks/footer"
 
 export const metadata: Metadata = {
-  title: "How to Promote Your Minecraft Server or Roblox Game | MediaHouse",
+  title: "Promote Your Minecraft Server or Roblox Game",
   description:
     "Learn how to promote your Minecraft server or Roblox game by hiring YouTubers. MediaHouse is the premier influencer marketing agency for gaming.",
   openGraph: {
-    title: "How to Promote Your Minecraft Server | MediaHouse For Game Owners",
+    title: "Promote Your Minecraft Server | MediaHouse For Game Owners",
     description: "Learn how to promote your Minecraft server or Roblox game by hiring YouTubers. Get high-ROI creator campaigns.",
     url: "https://media-house.studio/for-server-owners",
   },
@@ -37,11 +37,11 @@ const faqItems = [
   },
   {
     question: "Do you guarantee deliverables?",
-    answer: "Yes. Every campaign runs under a structured contract with clearly defined deliverables. We manage quality assurance and ensure creators deliver exactly what was agreed upon — on time."
+    answer: "Yes. Every campaign runs under a structured contract with clearly defined deliverables. We manage quality assurance and ensure creators deliver exactly what was agreed upon  on time."
   },
   {
     question: "What kind of ROI can I expect?",
-    answer: "ROI varies by game type, creator match, and campaign goals. Our campaigns are structured around performance metrics — whether that's concurrent players, Discord joins, or store revenue. We provide full analytics after each campaign."
+    answer: "Our campaigns are designed to create massive awareness and get your server in front of the right eyes. By leveraging the proven reach of our creators, we focus on generating authentic interest and amplifying your project within highly engaged communities. Every server and audience is unique, so while exact conversion metrics naturally vary, our commitment is to provide top-tier exposure and ensure your server makes a powerful impact."
   },
   {
     question: "Can I choose which creators promote my game?",
@@ -78,8 +78,8 @@ export default function ForServerOwnersPage() {
         <p className="text-xl text-text-muted mb-10 max-w-2xl mx-auto">
           Partner with top-tier gaming creators for structured, performance-driven campaigns that drive engaged players directly to your game.
         </p>
-        <Link 
-          href="/apply/server-owner" 
+        <Link
+          href="/apply/server-owner"
           className="inline-block bg-[#00D1FF] hover:bg-[#33DAFF] text-black px-8 py-4 rounded-full font-bold transition-all"
         >
           Submit a Campaign
@@ -91,14 +91,14 @@ export default function ForServerOwnersPage() {
         <div className="max-w-[800px] mx-auto w-full prose prose-invert lg:prose-lg font-body text-[#B0B0B0]">
           <h2 className="text-white font-heading font-bold text-3xl mb-6">How to promote your Minecraft server or Roblox game</h2>
           <p className="mb-6 leading-relaxed">
-            In today&apos;s crowded gaming market, simply launching a server or experience isn&apos;t enough. Traditional server lists 
-            and generic ad platforms deliver low-retention players. The most effective way to build an engaged community is 
-            through <strong>gaming influencer marketing</strong>. By hiring YouTubers and TikTokers to play your game, you 
+            In today&apos;s crowded gaming market, simply launching a server or experience isn&apos;t enough. Traditional server lists
+            and generic ad platforms deliver low-retention players. The most effective way to build an engaged community is
+            through <strong>gaming influencer marketing</strong>. By hiring YouTubers and TikTokers to play your game, you
             leverage their pre-established trust and engaged audience. Explore our{" "}
             <Link href="/minecraft" className="text-[#00D1FF] hover:underline">Minecraft</Link> and{" "}
             <Link href="/roblox" className="text-[#00D1FF] hover:underline">Roblox</Link> campaign options.
           </p>
-          
+
           <h3 className="text-white font-heading font-bold text-2xl mt-10 mb-4">Why traditional outreach fails</h3>
           <p className="mb-4 leading-relaxed">
             Many server owners attempt to cold-email creators directly. This often results in:
@@ -112,17 +112,17 @@ export default function ForServerOwnersPage() {
 
           <h3 className="text-white font-heading font-bold text-2xl mt-10 mb-4">The MediaHouse Advantage</h3>
           <p className="mb-6 leading-relaxed">
-            As a specialized <strong>gaming sponsorship agency</strong>, we remove the friction from creator marketing. We maintain an 
+            As a specialized <strong>gaming sponsorship agency</strong>, we remove the friction from creator marketing. We maintain an
             exclusive roster of high-performing Minecraft and Roblox creators whose audiences actively convert into players.
           </p>
           <p className="mb-6 leading-relaxed">
-            When you launch a campaign with us, we handle the creator matching, rate negotiation, script approvals, and QA. 
-            You only pay for guaranteed deliverables. We structure our deals around performance, ensuring your marketing budget 
+            When you launch a campaign with us, we handle the creator matching, rate negotiation, script approvals, and QA.
+            You only pay for guaranteed deliverables. We structure our deals around performance, ensuring your marketing budget
             generates actual ROI, whether that&apos;s measured in concurrent players, discord joins, or store purchases.
           </p>
 
           <p className="mt-8">
-            Ready to scale your playerbase with predictable results? 
+            Ready to scale your playerbase with predictable results?
             <Link href="/apply/server-owner" className="text-[#00D1FF] hover:underline ml-2">Submit your campaign details today.</Link>
           </p>
         </div>
@@ -150,7 +150,7 @@ export default function ForServerOwnersPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="flex-grow"></div>
       <Footer />
     </main>

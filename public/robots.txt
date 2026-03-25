@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /apply/creator/success
-Disallow: /apply/server-owner/success
-
-User-agent: bingbot
-Allow: /
-
-Sitemap: https://media-house.studio/sitemap.xml
