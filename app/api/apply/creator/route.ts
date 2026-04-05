@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server"
 import { createClient } from "@supabase/supabase-js"
 import { z } from "zod"
-import DOMPurify from "isomorphic-dompurify"
 
 // Rate limiting store (in-memory, resets on deploy)
 // WARNING: For production with multiple instances or serverless functions,
@@ -29,12 +28,11 @@ function checkRateLimit(identifier: string): { allowed: boolean; retryAfter?: nu
   return { allowed: true }
 }
 
-// Input sanitization helper using DOMPurify
+// Lightweight input sanitizer — strips HTML tags without needing jsdom
 function sanitizeInput(input: string): string {
-  return DOMPurify.sanitize(input, {
-    ALLOWED_TAGS: [],
-    ALLOWED_ATTR: [],
-  })
+  return input
+    .replace(/<[^>]*>/g, "") // Strip HTML tags
+    .replace(/[<>]/g, "")    // Remove any remaining angle brackets
     .trim()
     .slice(0, 1000) // Limit length
 }
