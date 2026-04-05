@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { supabase } from "@/lib/supabase"
+import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -10,6 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import Sheet from "@/components/ui/sheet"
 import TOSContent from "@/components/legal/tos-content"
 import FormError from "@/components/forms/form-error"
+import { ButtonLoading } from "@/components/ui/loading-indicator"
 
 function isValidProfileUrl(url: string): boolean {
   try {
@@ -47,19 +48,23 @@ export default function CreatorForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
+    // Client-side validation
     if (!formData.full_name || !formData.email || !formData.youtube_url || !formData.discord_username || !formData.game_type) {
+      toast.error("Please fill all required fields.")
       setSubmitStatus("error")
       setErrorMessage("Please fill all required fields.")
       return
     }
 
     if (!isValidProfileUrl(formData.youtube_url)) {
+      toast.error("Please enter a valid profile or channel URL.")
       setSubmitStatus("error")
       setErrorMessage("Please enter a valid profile or channel URL.")
       return
     }
 
     if (!formData.agrees_tos) {
+      toast.error("You must agree to the Terms of Service.")
       setSubmitStatus("error")
       setErrorMessage("You must agree to the Terms of Service.")
       return
@@ -68,33 +73,47 @@ export default function CreatorForm() {
     setIsSubmitting(true)
     setSubmitStatus(null)
 
-    if (!supabase) {
-      setSubmitStatus("error")
-      setErrorMessage("Service not configured. Please contact support.")
-      setIsSubmitting(false)
-      return
-    }
+    try {
+      const response = await fetch("/api/apply/creator", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          full_name: formData.full_name,
+          email: formData.email,
+          youtube_url: formData.youtube_url,
+          avg_views: formData.avg_views,
+          content_type: formData.content_type,
+          audience_location: formData.audience_location,
+          agrees_tos: formData.agrees_tos,
+          discord_username: formData.discord_username,
+          game_type: formData.game_type,
+        }),
+      })
 
-    const { error } = await supabase.from("creators").insert([
-      {
-        full_name: formData.full_name,
-        email: formData.email,
-        youtube_url: formData.youtube_url,
-        avg_views: formData.avg_views ? Number(formData.avg_views) : null,
-        content_type: formData.content_type || null,
-        audience_location: formData.audience_location || null,
-        agrees_tos: formData.agrees_tos,
-        discord_username: formData.discord_username,
-        game_type: formData.game_type,
-      },
-    ])
+      const data = await response.json()
 
-    if (error) {
-      console.error(error)
+      if (!response.ok) {
+        // Handle specific error types
+        if (data.errors && Array.isArray(data.errors)) {
+          const errorMessages = data.errors.map((err: { field: string; message: string }) => `${err.field}: ${err.message}`).join(", ")
+          setErrorMessage(errorMessages || data.message || "Submission failed. Please try again.")
+          toast.error(data.message || "Submission failed. Please try again.")
+        } else {
+          setErrorMessage(data.message || "Submission failed. Please try again.")
+          toast.error(data.message || "Submission failed. Please try again.")
+        }
+        setSubmitStatus("error")
+      } else {
+        toast.success("Application submitted successfully! Redirecting...")
+        router.push("/apply/creator/success")
+      }
+    } catch (error) {
+      console.error("Form submission error:", error)
+      toast.error("An unexpected error occurred. Please try again later.")
       setSubmitStatus("error")
-      setErrorMessage("Submission failed. Please try again.")
-    } else {
-      router.push("/apply/creator/success")
+      setErrorMessage("An unexpected error occurred. Please try again later.")
     }
 
     setIsSubmitting(false)
@@ -240,8 +259,11 @@ export default function CreatorForm() {
         type="submit"
         disabled={isSubmitting}
         className="w-full mt-2 bg-gradient-to-br from-brand to-brand-secondary text-white font-heading font-semibold py-5 sm:py-6 rounded-lg text-[0.9375rem] sm:text-base hover:shadow-[0_6px_24px_rgba(255,107,53,0.3)] hover:-translate-y-px transition-all duration-250 disabled:opacity-60"
+        aria-busy={isSubmitting}
       >
-        {isSubmitting ? "Submitting..." : "Submit Application"}
+        <ButtonLoading isLoading={isSubmitting} loadingText="Submitting...">
+          Submit Application
+        </ButtonLoading>
       </Button>
     </form>
   )

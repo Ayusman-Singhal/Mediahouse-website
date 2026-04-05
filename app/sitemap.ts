@@ -4,7 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://media-house.studio"
   // Using a static date to avoid changing dates on every build, which is bad for SEO
   // Update this date when content changes significantly
-  const lastModDate = new Date("2026-03-24")
+  const lastModDate = new Date("2026-04-01")
 
   return [
     {

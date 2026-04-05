@@ -58,7 +58,8 @@ export default function HeroHome() {
       const headlineToY = isMobileLayout ? -14 : -40
 
       // Hide headline via JS (was previously CSS opacity-0, removed for SSR crawlability)
-      if (headlineRef.current) gsap.set(headlineRef.current, { opacity: 0 })
+      // Must include xPercent: -50 to preserve the CSS left-1/2 centering
+      if (headlineRef.current) gsap.set(headlineRef.current, { opacity: 0, xPercent: -50 })
 
       if (prefersReducedMotion) {
         const elements = [
@@ -66,7 +67,7 @@ export default function HeroHome() {
           introGlowRef.current,
         ].filter((el): el is HTMLDivElement => el !== null)
         if (elements.length) gsap.set(elements, { autoAlpha: 0 })
-        if (headlineRef.current) gsap.set(headlineRef.current, { autoAlpha: 1, y: 0 })
+        if (headlineRef.current) gsap.set(headlineRef.current, { autoAlpha: 1, y: 0, xPercent: -50 })
         return
       }
 
@@ -107,7 +108,7 @@ export default function HeroHome() {
       tl.to(logoRef.current, { y: logoLift, duration: 0.6, ease: "power2.out" }, 1.2)
 
       // Scene 3: Headline fades in below logo
-      tl.fromTo(headlineRef.current, { opacity: 0, y: headlineFromY }, { opacity: 1, y: headlineToY, duration: 0.8, ease: "power2.out" }, 2.0)
+      tl.fromTo(headlineRef.current, { opacity: 0, y: headlineFromY, xPercent: -50 }, { opacity: 1, y: headlineToY, xPercent: -50, duration: 0.8, ease: "power2.out" }, 2.0)
 
     }, containerRef)
 
@@ -159,7 +160,7 @@ export default function HeroHome() {
         {/* Headline that fades in after testimonials scatter */}
         <div
           ref={headlineRef}
-          className="absolute z-[20] left-1/2 -translate-x-1/2 bottom-[8%] sm:bottom-[10%] md:bottom-[12%] text-center px-4 sm:px-6 w-[92vw] max-w-[720px]"
+          className="absolute z-[20] left-1/2 bottom-[8%] sm:bottom-[10%] md:bottom-[12%] text-center px-4 sm:px-6 w-[92vw] max-w-[720px]"
         >
           <h1 className="font-heading text-[clamp(1.65rem,5vw,3.5rem)] font-extrabold leading-[1.1] tracking-[-0.02em] mb-3 text-balance">
             Gaming Sponsorships,

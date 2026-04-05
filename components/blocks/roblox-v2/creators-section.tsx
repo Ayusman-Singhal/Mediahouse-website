@@ -5,6 +5,7 @@ import { FileSignature, ShieldCheck, Gamepad2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { useMounted } from "@/lib/use-mounted"
 
 const points = [
   {
@@ -25,6 +26,7 @@ const points = [
 ]
 
 export default function CreatorsSection() {
+  const m = useMounted()
   return (
     <section className="w-full py-24 bg-background relative overflow-hidden text-white">
       {/* Optimized Background decorations */}
@@ -34,7 +36,7 @@ export default function CreatorsSection() {
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-center">
           
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={m ? { opacity: 0, scale: 0.95 } : false}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -42,7 +44,7 @@ export default function CreatorsSection() {
           >
             <div className="relative flex justify-center overflow-hidden">
               <Image
-                src="/assets/robolox-creator-island.png"
+                src="/assets/roblox-creator-island.png"
                 alt="Roblox creator island"
                 width={400}
                 height={400}
@@ -54,7 +56,7 @@ export default function CreatorsSection() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={m ? { opacity: 0, y: 20 } : false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}

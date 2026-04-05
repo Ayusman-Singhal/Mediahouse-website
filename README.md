@@ -1,78 +1,78 @@
-# Mediahouse Website
+# [MediaHouse](https://media-house.studio)  Managed Sponsorship Brokerage for Gaming
 
-A modern web app built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS**, with **Supabase** for backend services.
+**[media-house.studio](https://media-house.studio)**  MediaHouse connects growth-focused game server operators with performance-driven gaming content creators across Minecraft and Roblox.
+
+We handle creator discovery, rate negotiation, campaign structuring, and delivery  so server owners get results, and creators get paid fairly.
+
+## What We Do
+
+- 🎮 **[Minecraft Server Promotion](https://media-house.studio/minecraft)**  Structured sponsorship campaigns with vetted Minecraft creators
+- 🟣 **[Roblox Game Advertising](https://media-house.studio/roblox)**  Awareness-driven campaigns with Roblox content creators
+- 🎬 **[For Creators](https://media-house.studio/for-creators)**  Rate protection, zero outreach, multi-video deals
+- 🏗️ **[For Server Owners](https://media-house.studio/for-server-owners)**  Vetted creator rosters, predictable campaign costs
 
 ## Tech Stack
 
-- **Framework:** Next.js (App Router)
+- **Framework:** [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
 - **Language:** TypeScript
-- **UI / Styling:** Tailwind CSS, shadcn/ui, Radix UI, lucide-react
-- **Animations:** Framer Motion, GSAP
-- **Backend:** Supabase (`@supabase/supabase-js`)
+- **Styling:** Tailwind CSS 4, shadcn/ui, Radix UI
+- **Animations:** Framer Motion, GSAP with ScrollTrigger
+- **Backend:** Supabase
+- **Deployment:** Vercel
+- **SEO:** JSON-LD structured data, FAQPage schema, sitemap, IndexNow
 
 ## Project Structure
 
-- `app/` – Next.js App Router routes, layouts, and pages
-  - `app/page.tsx` – Home page
-  - `app/layout.tsx` – Root layout
-  - `app/error.tsx`, `app/loading.tsx`, `app/not-found.tsx` – App Router special files
-  - `app/sitemap.ts` – Sitemap generation
-  - `app/apply/`, `app/minecraft/`, `app/roblox/` – Route segments
-- `components/` – Reusable UI and page components
-  - `components/ui/` – UI primitives (shadcn/ui style)
-  - `components/blocks/`, `components/forms/`, `components/legal/` – Feature/grouped components
-- `lib/` – Shared utilities
-  - `lib/supabase.ts` – Supabase client setup
-  - `lib/utils.ts` – Helper utilities
-- `public/` – Static assets served from the site root
-- `assets/` – Project assets
+```
+app/                    # Next.js App Router
+├── page.tsx           # Home page
+├── layout.tsx         # Root layout with SEO metadata
+├── minecraft/         # Minecraft landing page
+├── roblox/            # Roblox landing page
+├── for-creators/      # Creator info + FAQ
+├── for-server-owners/ # Server owner info + FAQ
+├── apply/             # Application forms
+├── api/               # API routes (form submissions)
+├── sitemap.ts         # Dynamic sitemap
+└── robots.ts          # Crawler config
+
+components/
+├── ui/                # Primitives (Button, Input, Card, etc.)
+├── blocks/            # Page sections (Hero, Header, Footer, JSON-LD)
+├── forms/             # Form components
+└── legal/             # Legal content
+
+lib/                   # Utilities (Supabase client, helpers)
+```
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js installed (recommend: latest LTS)
-- npm (or yarn/pnpm/bun)
-
-### 1) Install dependencies
-
 ```bash
+# Install dependencies
 npm install
-```
 
-### 2) Configure environment variables
-
-Copy `.env.example` to `.env.local` and fill in your Supabase credentials:
-
-```bash
+# Configure environment
 cp .env.example .env.local
-```
+# Add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-Required variables:
-
-- `NEXT_PUBLIC_SUPABASE_URL`
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-
-### 3) Run the dev server
-
-```bash
+# Run dev server
 npm run dev
 ```
 
-Then open http://localhost:3000.
-
 ## Scripts
 
-- `npm run dev` – Start dev server (uses Turbopack)
-- `npm run build` – Build for production
-- `npm run start` – Run production server
-- `npm run lint` – Lint the project
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start dev server (Turbopack) |
+| `npm run build` | Production build |
+| `npm run start` | Run production server |
+| `npm run lint` | ESLint check |
+| `node scripts/ping-search-engines.mjs` | Notify Bing/Yandex of content updates |
 
 ## Deployment
 
-This project is ready to deploy on **Vercel**:
+Deployed on **[Vercel](https://vercel.com)** with automatic CI/CD from the `main` branch.
 
-1. Push your repo to GitHub
-2. Import it in Vercel
-3. Add the same environment variables from `.env.local`
-4. Deploy
+## License
+
+All rights reserved. © MediaHouse

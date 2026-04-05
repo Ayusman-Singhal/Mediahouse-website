@@ -1,11 +1,66 @@
+# Dependencies
 node_modules/
+
+# Build outputs
 dist/
 build/
-.env
-package-lock.json
 .next/
 out/
-.gitignore
+*.tsbuildinfo
+
+# Environment files - NEVER commit these
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Package manager lock files - KEEP for deterministic builds
+# (package-lock.json is committed intentionally)
+
+# Logs
+*.log
+npm-debug.log*
+
+# Testing
+coverage/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
+# IDE / Editor / Dev tooling
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+.editorconfig
+.prettierrc
+.nvmrc
+
+# AI / Agent tools
+.claude/
+CLAUDE.md
+.agents/
+.gemini/
+.cursor/
+.copilot/
+skills-lock.json
+
+# Local-only dev reference files
+local-only/
+backlinks/
+
+# Generated reports (dev-only)
 lighthouse-report.txt
 seo.txt
 bing-webmaster-guidelines.txt
+
+# Implementation summaries / audit files (dev-only)
+IMPLEMENTATION_SUMMARY.md
+what_to_do.md
+
+# Vercel
+.vercel/

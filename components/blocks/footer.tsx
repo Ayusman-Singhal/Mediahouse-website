@@ -16,7 +16,7 @@ export default function Footer() {
       <footer className="w-full border-t border-white/[0.06] py-8 sm:py-10 px-6 mt-12 md:mt-0">
         <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6">
           <div className="flex items-center gap-3">
-            <Image src="/assets/MediaHouseLogo.png" alt="" role="presentation" width={28} height={28} sizes="28px" className="w-7 h-7 object-contain" />
+            <Image src="/assets/MediaHouseLogo.png" alt="MediaHouse" width={28} height={28} sizes="28px" className="w-7 h-7 object-contain" />
             <span className="font-heading text-base font-bold text-white">MediaHouse</span>
           </div>
           <nav className="flex items-center gap-5 sm:gap-6 flex-wrap justify-center">

@@ -1,12 +1,18 @@
 export default function JsonLd() {
   const organizationSchema = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": ["Organization", "ProfessionalService"],
     "@id": "https://media-house.studio/#organization",
     name: "MediaHouse",
     alternateName: "Media House Studio",
     url: "https://media-house.studio",
-    logo: "https://media-house.studio/assets/MediaHouseLogo.png",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://media-house.studio/assets/MediaHouseLogo.png",
+      width: 512,
+      height: 512,
+      caption: "MediaHouse Logo",
+    },
     image: "https://media-house.studio/og-image.jpg",
     description:
       "MediaHouse is a managed sponsorship brokerage connecting gaming creators with game owners across Minecraft and Roblox. We handle negotiation, campaign structuring, and professional delivery.",

@@ -264,7 +264,15 @@ export default function HeroBridge() {
 
         {/* Server Owner Island + Text */}
         <div ref={serverIslandRef} className={styles.islandLeft}>
-          <Image src="/assets/server-owner-island.png" alt="Server Owner Island" width={400} height={400} sizes="(max-width: 768px) 280px, (max-width: 1024px) 360px, 400px" className={styles.islandImage} />
+          <Image
+            src="/assets/server-owner-island.png"
+            alt="Server Owner Island"
+            width={400}
+            height={400}
+            sizes="(max-width: 768px) 280px, (max-width: 1024px) 360px, 400px"
+            loading="lazy"
+            className={styles.islandImage}
+          />
           <div className={styles.islandLabel}>Server Owners</div>
         </div>
         <div ref={serverTextRef} className={styles.textRight}>
@@ -276,7 +284,15 @@ export default function HeroBridge() {
 
         {/* Creator Island + Text */}
         <div ref={creatorIslandRef} className={styles.islandRight}>
-          <Image src="/assets/creator-island.png" alt="Creator Island" width={400} height={400} sizes="(max-width: 768px) 280px, (max-width: 1024px) 360px, 400px" className={styles.islandImage} />
+          <Image
+            src="/assets/creator-island.png"
+            alt="Creator Island"
+            width={400}
+            height={400}
+            sizes="(max-width: 768px) 280px, (max-width: 1024px) 360px, 400px"
+            loading="lazy"
+            className={styles.islandImage}
+          />
           <div className={styles.islandLabel}>Creators</div>
         </div>
         <div ref={creatorTextRef} className={styles.textLeft}>

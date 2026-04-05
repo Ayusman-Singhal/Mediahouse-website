@@ -49,7 +49,15 @@ export default function Header() {
             }}
             className="flex items-center gap-2.5 no-underline shrink-0"
           >
-            <Image src="/assets/MediaHouseLogo.png" alt="MediaHouse" width={32} height={32} sizes="32px" className="w-8 h-8 object-contain" />
+            <Image
+              src="/assets/MediaHouseLogo.png"
+              alt="MediaHouse"
+              width={32}
+              height={32}
+              priority
+              sizes="32px"
+              className="w-8 h-8 object-contain"
+            />
             <span className="font-heading text-[1.1rem] font-bold text-white tracking-tight">MediaHouse</span>
           </Link>
 

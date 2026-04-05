@@ -6,8 +6,10 @@ import { ArrowRight, Sparkles } from "lucide-react"
 import { useRef } from "react"
 import Link from "next/link"
 import { Particles } from "@/components/ui/particles"
+import { useMounted } from "@/lib/use-mounted"
 
 export default function RobloxHeroV2() {
+  const m = useMounted()
   const containerRef = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -42,7 +44,7 @@ export default function RobloxHeroV2() {
 
       <div className="container relative z-10 px-4 md:px-6 flex flex-col items-center text-center">
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
+          initial={m ? { opacity: 0, y: 40 } : false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
           className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 max-w-5xl text-white leading-tight md:leading-tight lg:leading-tight"
@@ -51,7 +53,7 @@ export default function RobloxHeroV2() {
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
+          initial={m ? { opacity: 0, y: 30 } : false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           className="text-lg md:text-xl md:leading-relaxed text-text-muted max-w-2xl mb-12"
@@ -60,7 +62,7 @@ export default function RobloxHeroV2() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={m ? { opacity: 0, y: 30 } : false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
           className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center"

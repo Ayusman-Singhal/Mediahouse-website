@@ -3,6 +3,7 @@ import { Suspense } from "react"
 import { Lexend_Deca, Outfit } from "next/font/google"
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Toaster } from "sonner"
 import "./globals.css"
 import Header from "@/components/blocks/header"
 import JsonLd from "@/components/blocks/jsonld"
@@ -23,10 +24,15 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0F0F0F" },
+    { media: "(prefers-color-scheme: light)", color: "#0F0F0F" },
+  ],
 }
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://media-house.studio"),
+  applicationName: "MediaHouse",
   title: {
     default: "MediaHouse - Managed Sponsorship Brokerage for Gaming",
     template: "%s | MediaHouse",
@@ -40,10 +46,23 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "30ef55376bca769c",
+    other: {
+      "msvalidate.01": ["B44E14B70CE86E498D56B7E3E6260A34"],
+    },
+  },
+  other: {
+    "msvalidate.01": "B44E14B70CE86E498D56B7E3E6260A34",
   },
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { rel: "mask-icon", url: "/assets/MediaHouseLogo.png" },
+    ],
   },
   openGraph: {
     title: "MediaHouse - Gaming Sponsorships, Managed Professionally",
@@ -81,6 +100,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
         </Suspense>
         {children}
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              background: "#1A1A1A",
+              border: "1px solid rgba(255,255,255,0.1)",
+              color: "#fff",
+            },
+          }}
+        />
         <Analytics />
         <SpeedInsights />
       </body>

@@ -5,6 +5,7 @@ import { ShieldCheck } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { useMounted } from "@/lib/use-mounted"
 
 const points = [
   "Access vetted Roblox creators with the right audience fit",
@@ -14,13 +15,14 @@ const points = [
 ]
 
 export default function ServerOwnersSection() {
+  const m = useMounted()
   return (
     <section className="w-full py-24 bg-background relative overflow-hidden text-white">
       <div className="container px-4 md:px-6 relative z-10 mx-auto max-w-[1200px]">
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center">
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={m ? { opacity: 0, y: 20 } : false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -52,7 +54,7 @@ export default function ServerOwnersSection() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={m ? { opacity: 0, scale: 0.95 } : false}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -60,7 +62,7 @@ export default function ServerOwnersSection() {
           >
             <div className="relative flex justify-center overflow-hidden">
               <Image
-                src="/assets/robolox-game-owner-island.png"
+                src="/assets/roblox-game-owner-island.png"
                 alt="Roblox game owner island"
                 width={320}
                 height={320}

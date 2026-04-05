@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { supabase } from "@/lib/supabase"
+import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -10,6 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import Sheet from "@/components/ui/sheet"
 import TOSContent from "@/components/legal/tos-content"
 import FormError from "@/components/forms/form-error"
+import { ButtonLoading } from "@/components/ui/loading-indicator"
 
 export default function ServerOwnerForm() {
   const router = useRouter()
@@ -41,6 +42,7 @@ export default function ServerOwnerForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
+    // Client-side validation
     if (
       !formData.full_name ||
       !formData.email ||
@@ -52,12 +54,14 @@ export default function ServerOwnerForm() {
       !formData.discord_link ||
       !formData.game_type
     ) {
+      toast.error("Please fill all required fields.")
       setSubmitStatus("error")
       setErrorMessage("Please fill all required fields.")
       return
     }
 
     if (!formData.agrees_tos) {
+      toast.error("You must agree to the Terms of Service.")
       setSubmitStatus("error")
       setErrorMessage("You must agree to the Terms of Service.")
       return
@@ -66,35 +70,49 @@ export default function ServerOwnerForm() {
     setIsSubmitting(true)
     setSubmitStatus(null)
 
-    if (!supabase) {
-      setSubmitStatus("error")
-      setErrorMessage("Service not configured. Please contact support.")
-      setIsSubmitting(false)
-      return
-    }
+    try {
+      const response = await fetch("/api/apply/server-owner", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          full_name: formData.full_name,
+          email: formData.email,
+          server_name: formData.server_name,
+          server_type: formData.server_type,
+          campaign_budget: formData.campaign_budget,
+          campaign_goal: formData.campaign_goal,
+          timezone: formData.timezone,
+          server_ip: formData.server_ip,
+          discord_link: formData.discord_link,
+          agrees_tos: formData.agrees_tos,
+          game_type: formData.game_type,
+        }),
+      })
 
-    const { error } = await supabase.from("server_owners").insert([
-      {
-        full_name: formData.full_name,
-        email: formData.email,
-        server_name: formData.server_name,
-        server_type: formData.server_type,
-        campaign_budget: Number(formData.campaign_budget),
-        campaign_goal: formData.campaign_goal,
-        timezone: formData.timezone || null,
-        server_ip: formData.server_ip,
-        discord_link: formData.discord_link,
-        agrees_tos: formData.agrees_tos,
-        game_type: formData.game_type,
-      },
-    ])
+      const data = await response.json()
 
-    if (error) {
-      console.error(error)
+      if (!response.ok) {
+        // Handle specific error types
+        if (data.errors && Array.isArray(data.errors)) {
+          const errorMessages = data.errors.map((err: { field: string; message: string }) => `${err.field}: ${err.message}`).join(", ")
+          setErrorMessage(errorMessages || data.message || "Submission failed. Please try again.")
+          toast.error(data.message || "Submission failed. Please try again.")
+        } else {
+          setErrorMessage(data.message || "Submission failed. Please try again.")
+          toast.error(data.message || "Submission failed. Please try again.")
+        }
+        setSubmitStatus("error")
+      } else {
+        toast.success("Campaign request submitted successfully! Redirecting...")
+        router.push("/apply/server-owner/success")
+      }
+    } catch (error) {
+      console.error("Form submission error:", error)
+      toast.error("An unexpected error occurred. Please try again later.")
       setSubmitStatus("error")
-      setErrorMessage("Submission failed. Please try again.")
-    } else {
-      router.push("/apply/server-owner/success")
+      setErrorMessage("An unexpected error occurred. Please try again later.")
     }
 
     setIsSubmitting(false)
@@ -265,8 +283,11 @@ export default function ServerOwnerForm() {
         type="submit"
         disabled={isSubmitting}
         className="w-full mt-2 bg-gradient-to-br from-brand to-brand-secondary text-white font-heading font-semibold py-5 sm:py-6 rounded-lg text-[0.9375rem] sm:text-base hover:shadow-[0_6px_24px_rgba(255,107,53,0.3)] hover:-translate-y-px transition-all duration-250 disabled:opacity-60"
+        aria-busy={isSubmitting}
       >
-        {isSubmitting ? "Submitting..." : "Submit Campaign Request"}
+        <ButtonLoading isLoading={isSubmitting} loadingText="Submitting...">
+          Submit Campaign Request
+        </ButtonLoading>
       </Button>
     </form>
   )

@@ -19,7 +19,9 @@ export default function Error({ error, reset }: ErrorProps) {
           An unexpected error occurred while loading this page.
         </p>
         <p className="mb-8 max-w-[640px] break-words text-sm text-text-subdued">
-          {error.message}
+          {process.env.NODE_ENV === "development"
+            ? error.message
+            : "Please try again or return to the home page."}
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <button

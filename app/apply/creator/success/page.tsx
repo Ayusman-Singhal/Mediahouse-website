@@ -4,6 +4,7 @@ import SuccessLayout from "@/components/forms/success-layout"
 export const metadata: Metadata = {
   title: "Application Submitted - MediaHouse",
   description: "Your creator application has been submitted. Join our Discord to get started.",
+  robots: { index: false, follow: false },
 }
 
 export default function CreatorSuccessPage() {

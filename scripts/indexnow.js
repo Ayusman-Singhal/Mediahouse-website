@@ -1,7 +1,14 @@
 const https = require('https');
 
 const host = "media-house.studio";
-const key = "27e8ab14af10415a92c138bd4c416e0e";
+const key = process.env.INDEXNOW_KEY;
+
+if (!key) {
+  console.error("Error: INDEXNOW_KEY environment variable is required");
+  console.error("Set it with: INDEXNOW_KEY=your-key node scripts/indexnow.js");
+  process.exit(1);
+}
+
 const keyLocation = `https://${host}/${key}.txt`;
 
 const urlList = [

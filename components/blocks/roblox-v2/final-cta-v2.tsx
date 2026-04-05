@@ -6,8 +6,10 @@ import { ArrowRight, MessageSquareText } from "lucide-react"
 import Link from "next/link"
 import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern"
 import { cn } from "@/lib/utils"
+import { useMounted } from "@/lib/use-mounted"
 
 export default function FinalCTAV2() {
+  const m = useMounted()
   return (
     <section className="w-full py-24 bg-background relative overflow-hidden">
       {/* Animated Grid Background */}
@@ -27,7 +29,7 @@ export default function FinalCTAV2() {
 
       <div className="container px-4 md:px-6 relative z-10 max-w-4xl mx-auto text-center">
         <motion.div
-           initial={{ opacity: 0, scale: 0.98 }}
+           initial={m ? { opacity: 0, scale: 0.98 } : false}
            whileInView={{ opacity: 1, scale: 1 }}
            viewport={{ once: true }}
            transition={{ duration: 0.5 }}

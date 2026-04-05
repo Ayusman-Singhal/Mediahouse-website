@@ -4,6 +4,7 @@ import SuccessLayout from "@/components/forms/success-layout"
 export const metadata: Metadata = {
   title: "Campaign Submitted - MediaHouse",
   description: "Your campaign request has been submitted. Join our Discord to get started.",
+  robots: { index: false, follow: false },
 }
 
 export default function ServerOwnerSuccessPage() {
