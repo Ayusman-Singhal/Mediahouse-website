@@ -8,7 +8,7 @@ import DOMPurify from "isomorphic-dompurify"
 // use Redis or a database-backed solution instead of in-memory storage
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>()
 
-const RATE_LIMIT_WINDOW = 3600000 // 1 hour in milliseconds
+const RATE_LIMIT_WINDOW = 60000 // 60 seconds in milliseconds
 const MAX_SUBMISSIONS = 3
 
 function checkRateLimit(identifier: string): { allowed: boolean; retryAfter?: number } {

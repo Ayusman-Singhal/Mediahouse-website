@@ -8,7 +8,7 @@ import DOMPurify from "isomorphic-dompurify"
 // use Redis or a database-backed solution instead of in-memory storage
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>()
 
-const RATE_LIMIT_WINDOW = 3600000 // 1 hour in milliseconds
+const RATE_LIMIT_WINDOW = 60000 // 60 seconds in milliseconds
 const MAX_SUBMISSIONS = 3
 
 function checkRateLimit(identifier: string): { allowed: boolean; retryAfter?: number } {
@@ -45,7 +45,7 @@ const serverOwnerSchema = z.object({
   server_name: z.string().min(2, "Server name is required").max(200),
   server_type: z.string().min(2, "Server type is required").max(100),
   campaign_budget: z.string().min(1, "Campaign budget is required"),
-  campaign_goal: z.string().min(10, "Please describe your campaign goals").max(1000),
+  campaign_goal: z.string().min(10, "Please describe your campaign goals in atleast 10 characters ").max(1000),
   timezone: z.string().max(50).optional().or(z.literal("")),
   server_ip: z.string().min(3, "Server IP/address is required").max(200),
   discord_link: z.string().url("Please enter a valid Discord link").max(500),

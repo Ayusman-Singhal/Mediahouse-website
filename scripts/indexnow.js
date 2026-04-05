@@ -43,13 +43,13 @@ console.log(`Submitting ${urlList.length} URLs to IndexNow for host ${host}...`)
 
 const req = https.request(options, (res) => {
   console.log(`IndexNow Response STATUS: ${res.statusCode}`);
-  
+
   if (res.statusCode === 200 || res.statusCode === 202) {
     console.log("Success! URLs submitted efficiently to search engines.");
   } else {
     console.log("Response indicates an issue (check IndexNow documentation for code).");
   }
-  
+
   res.setEncoding('utf8');
   res.on('data', (chunk) => {
     if (chunk) console.log(`BODY: ${chunk}`);

@@ -52,8 +52,8 @@ async function pingIndexNow() {
       });
       const status = res.status;
       const statusText = status === 200 ? "✅ OK" :
-                         status === 202 ? "✅ Accepted" :
-                         `⚠️ ${res.statusText}`;
+        status === 202 ? "✅ Accepted" :
+          `⚠️ ${res.statusText}`;
       console.log(`  ${statusText} - ${engine} (HTTP ${status})`);
     } catch (err) {
       console.log(`  ❌ Failed - ${engine}: ${err.message}`);

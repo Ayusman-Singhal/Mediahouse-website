@@ -94,14 +94,15 @@ export default function ServerOwnerForm() {
       const data = await response.json()
 
       if (!response.ok) {
-        // Handle specific error types
+        // Show each validation error as a separate toast
         if (data.errors && Array.isArray(data.errors)) {
-          const errorMessages = data.errors.map((err: { field: string; message: string }) => `${err.field}: ${err.message}`).join(", ")
-          setErrorMessage(errorMessages || data.message || "Submission failed. Please try again.")
-          toast.error(data.message || "Submission failed. Please try again.")
+          data.errors.forEach((err: { field: string; message: string }) => {
+            toast.error(err.message)
+          })
+          setErrorMessage(data.message || "Please check your input and try again.")
         } else {
-          setErrorMessage(data.message || "Submission failed. Please try again.")
           toast.error(data.message || "Submission failed. Please try again.")
+          setErrorMessage(data.message || "Submission failed. Please try again.")
         }
         setSubmitStatus("error")
       } else {
