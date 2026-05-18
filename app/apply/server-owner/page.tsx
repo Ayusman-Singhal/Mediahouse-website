@@ -4,16 +4,16 @@ import ServerOwnerForm from "@/components/forms/server-owner-form"
 export const metadata: Metadata = {
   title: "Hire YouTubers for Minecraft & Roblox Promotion",
   description:
-    "Submit a campaign request to MediaHouse. We match your Minecraft server or Roblox game with vetted gaming creators for structured, performance-driven growth.",
+    "Submit a campaign request to MediaHouse. We match your Minecraft server or Roblox game with screened gaming creators for results-focused growth.",
   openGraph: {
     title: "Hire YouTubers for Game Promotion | MediaHouse",
-    description: "Match your Minecraft server or Roblox game with vetted gaming creators for performance-driven growth.",
+    description: "Match your Minecraft server or Roblox game with screened gaming creators for results-focused growth.",
     url: "https://media-house.studio/apply/server-owner",
   },
   twitter: {
     card: "summary_large_image",
     title: "Hire YouTubers for Game Promotion | MediaHouse",
-    description: "Match your Minecraft server or Roblox game with vetted gaming creators for performance-driven growth.",
+    description: "Match your Minecraft server or Roblox game with screened gaming creators for results-focused growth.",
   },
   alternates: {
     canonical: "https://media-house.studio/apply/server-owner",
@@ -31,7 +31,7 @@ export default function ServerOwnerPage() {
           </h1>
           <p className="text-base text-[#B0B0B0] leading-relaxed">
             Submit your campaign details. We&apos;ll evaluate your goals, match you with
-            vetted creators, and manage the entire process end to end.
+            screened creators, and manage the entire process from start to finish.
           </p>
         </div>
         <ServerOwnerForm />

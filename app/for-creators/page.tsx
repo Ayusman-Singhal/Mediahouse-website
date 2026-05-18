@@ -101,7 +101,7 @@ export default function ForCreatorsPage() {
           <h3 className="text-white font-heading font-bold text-2xl mt-10 mb-4">Why work with a gaming sponsorship agency?</h3>
           <ul className="list-disc pl-6 mb-8 space-y-3">
             <li><strong>Rate Protection:</strong> We know the market rates. We ensure you never undercharge for a dedicated video, integration, or stream.</li>
-            <li><strong>Vetted Partners:</strong> Every server owner and Roblox dev we work with is fully vetted. No more worrying about delayed payments or abandoned projects.</li>
+            <li><strong>Screened Partners:</strong> Every server owner and Roblox dev we work with is fully screened. No more worrying about delayed payments or abandoned projects.</li>
             <li><strong>Long-term Deals:</strong> We prioritize structured, multi-video campaigns that provide you with stable, predictable revenue.</li>
             <li><strong>Zero Outreach:</strong> You don&apos;t have to pitch yourself. We bring the deals directly to your inbox.</li>
           </ul>

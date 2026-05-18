@@ -14,7 +14,7 @@ const steps = [
   {
     icon: <Users className="w-6 h-6 text-brand-purple" />,
     title: "Creator Shortlist & Pitch",
-    description: "Identify and pitch vetted creators aligned with your audience.",
+    description: "Identify and pitch checked creators aligned with your audience.",
     accent: "from-brand-secondary to-brand-purple"
   },
   {

@@ -28,7 +28,7 @@ function checkRateLimit(identifier: string): { allowed: boolean; retryAfter?: nu
   return { allowed: true }
 }
 
-// Lightweight input sanitizer — strips HTML tags without needing jsdom
+// Lightweight input sanitizer strips HTML tags without needing jsdom
 function sanitizeInput(input: string): string {
   return input
     .replace(/<[^>]*>/g, "") // Strip HTML tags

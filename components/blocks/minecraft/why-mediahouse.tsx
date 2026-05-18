@@ -1,7 +1,7 @@
 const pillars = [
-  { title: "Controlled Negotiation", body: "All sponsorship terms handled centrally." },
-  { title: "Structured Execution", body: "Clear deliverables before launch." },
-  { title: "Isolated Campaigns", body: "Each deal privately managed." },
+  { title: "We Negotiate Everything", body: "Rates, timelines, and deliverables. You review the final terms. We handle everything before that." },
+  { title: "You Know What You\u2019re Getting", body: "No vague promises. Every campaign has a written brief before a single creator is contacted." },
+  { title: "Your Campaigns Stay Separate", body: "Each deal is managed privately. One campaign\u2019s issues never spill into another." },
 ]
 
 export default function WhyMediaHouse() {

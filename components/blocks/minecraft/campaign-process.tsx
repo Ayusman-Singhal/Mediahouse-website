@@ -1,11 +1,11 @@
 const steps = [
-  { num: "01", title: "Campaign Request Submission" },
-  { num: "02", title: "Strategy & Budget Evaluation" },
-  { num: "03", title: "Creator Shortlisting" },
-  { num: "04", title: "Negotiation & Deliverable Planning" },
-  { num: "05", title: "Agreement Finalization" },
-  { num: "06", title: "Campaign Execution" },
-  { num: "07", title: "Performance Analysis & Reporting" },
+  { num: "01", title: "You Submit a Campaign Request" },
+  { num: "02", title: "We Review Your Budget and Goals" },
+  { num: "03", title: "We Shortlist Creators Who Fit Your Audience" },
+  { num: "04", title: "Negotiation and Deliverable Scoping" },
+  { num: "05", title: "Both Sides Sign Off" },
+  { num: "06", title: "Campaign Goes Live" },
+  { num: "07", title: "We Send You a Performance Report" },
 ]
 
 export default function CampaignProcess() {
@@ -13,7 +13,7 @@ export default function CampaignProcess() {
     <section id="process" className="w-full py-16 sm:py-24 md:py-30 px-6 relative">
       <div className="max-w-[1200px] mx-auto text-center flex flex-col items-center">
         <h2 className="font-heading text-[clamp(2rem,4vw,3.5rem)] font-extrabold leading-[1.15] -tracking-wide">
-          End-to-End Campaign Management
+          Campaign Management, Start to Finish
         </h2>
         <div className="h-12" />
         <div className="flex flex-col gap-0 w-full max-w-xl">

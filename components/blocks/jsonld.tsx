@@ -15,7 +15,7 @@ export default function JsonLd() {
     },
     image: "https://media-house.studio/og-image.jpg",
     description:
-      "MediaHouse is a managed sponsorship brokerage connecting gaming creators with game owners across Minecraft and Roblox. We handle negotiation, campaign structuring, and professional delivery.",
+      "MediaHouse is a managed sponsorship brokerage connecting gaming creators with game owners across Minecraft and Roblox. We handle negotiation, campaign structuring, and delivery from start to finish.",
     knowsAbout: [
       "Gaming sponsorships",
       "Influencer marketing",
@@ -54,7 +54,7 @@ export default function JsonLd() {
     "@id": "https://media-house.studio/#service",
     name: "Gaming Creator Sponsorship Management",
     description:
-      "End-to-end sponsorship management for gaming creators and game owners. We match Minecraft and Roblox creators with server/game owners, negotiate rates, structure campaigns, and guarantee deliverables.",
+      "Full-service sponsorship management for gaming creators and game owners. We match Minecraft and Roblox creators with server/game owners, negotiate rates, structure campaigns, and guarantee deliverables.",
     provider: {
       "@id": "https://media-house.studio/#organization",
     },
@@ -79,7 +79,7 @@ export default function JsonLd() {
             "@type": "Service",
             name: "Campaign Management for Game Owners",
             description:
-              "Hire vetted gaming creators for structured, performance-driven promotion campaigns for Minecraft servers and Roblox games.",
+              "Hire screened gaming creators for results-focused promotion campaigns for Minecraft servers and Roblox games.",
           },
         },
       ],

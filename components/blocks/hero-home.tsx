@@ -163,12 +163,12 @@ export default function HeroHome() {
           className="absolute z-[20] left-1/2 bottom-[8%] sm:bottom-[10%] md:bottom-[12%] text-center px-4 sm:px-6 w-[92vw] max-w-[720px]"
         >
           <h1 className="font-heading text-[clamp(1.65rem,5vw,3.5rem)] font-extrabold leading-[1.1] tracking-[-0.02em] mb-3 text-balance">
-            Gaming Sponsorships,
+            Server Promotion That
             <br className="hidden sm:block" />
-            <span className="sm:ml-0"> Managed&nbsp;Professionally.</span>
+            <span className="sm:ml-0"> Actually&nbsp;Gets&nbsp;Done.</span>
           </h1>
           <p className="mx-auto text-[clamp(0.9rem,1.8vw,1.1rem)] leading-[1.65] tracking-[0.01em] text-text-muted opacity-87 max-w-[62ch]">
-            Connecting gaming creators with game owners across Minecraft, Roblox, and more.
+            We connect Minecraft and Roblox server owners with the right creators, then manage the whole campaign so you don&apos;t have to.
           </p>
         </div>
       </div>

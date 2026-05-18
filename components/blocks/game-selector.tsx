@@ -83,7 +83,7 @@ export default function GameSelector() {
                     Minecraft
                   </h3>
                   <p className="text-text-muted text-base leading-relaxed max-w-[340px] mb-8">
-                    Server promotions, creator sponsorships, and campaign management specifically engineered for Minecraft communities.
+                    Minecraft server promotion through creator sponsorships. We handle sourcing, negotiation, and delivery. You handle the server.
                   </p>
 
                   <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[#10B981] group-hover:text-[#34D399] transition-colors duration-300">
@@ -121,7 +121,7 @@ export default function GameSelector() {
                     Roblox
                   </h3>
                   <p className="text-text-muted text-base leading-relaxed max-w-[340px] mb-8">
-                    Experience promotions, creator partnerships, and campaign management natively built for the Roblox ecosystem.
+                    Roblox experience promotion through creator partnerships. Built around how the Roblox audience actually discovers and plays new games.
                   </p>
 
                   <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-roblox-red group-hover:text-brand transition-colors duration-300">

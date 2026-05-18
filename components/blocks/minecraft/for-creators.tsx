@@ -10,17 +10,17 @@ import { useMounted } from "@/lib/use-mounted"
 const points = [
   {
     title: "Rate Protection",
-    desc: "Direct sponsorship negotiation with brand-safe contracts, rate protection, and clear deliverable scoping.",
+    desc: "We negotiate directly with the brand so you don't have to anchor your own rate. Contracts are clear on scope, timeline, and what happens if either side doesn't deliver.",
     icon: FileSignature
   },
   {
     title: "Campaign Structuring",
-    desc: "Campaign structuring specifically aligned with your unique content style and audience demographics.",
+    desc: "Campaigns are built around how you actually make content, not a generic template. Your format, your audience, your posting schedule.",
     icon: Target
   },
   {
     title: "Managed Comms",
-    desc: "Business communication managed end to end. We protect your time so you can focus on building and playing.",
+    desc: "We handle all back-and-forth with the brand. The revision requests, the follow-ups, the \"when is this going live\" emails. You don't see any of it unless there's a decision to make.",
     icon: ShieldCheck
   }
 ]
@@ -62,7 +62,10 @@ export default function ForCreators() {
               For <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-purple-dark">Creators</span>
             </h2>
             <p className="text-lg text-text-muted leading-relaxed">
-              Get paid for what you love. Partner with brands that match your audience and style, while we manage the business end-to-end.
+              Most creators don&apos;t lose money because their content is bad. They lose it because they accepted the first number a brand offered, or agreed to a scope that wasn&apos;t written down anywhere.
+            </p>
+            <p className="text-base text-text-muted leading-relaxed mt-2">
+              We negotiate your rate, scope every deliverable in writing, and handle all brand communication on your behalf. You keep making videos. We handle the rest.
             </p>
 
             <div className="flex flex-col gap-6 mt-4">

@@ -2,19 +2,19 @@ const cases = [
   {
     type: "Fakepixel Dedicated Video Promotion",
     creatorSize: "50K–100K Subscribers",
-    performance: "Delivered on schedule, exceeded engagement targets",
+    performance: "Hit every milestone. Engagement came in above what the creator's channel average suggested.",
     status: "Completed",
   },
     {
     type: "Clubcraft Dedicated Video Promotion",
     creatorSize: "450k Subscribers",
-    performance: "Campaign completed, Increase in player engagement and revenue",
+    performance: "Wrapped clean. Server saw a measurable lift in both active players and store revenue.",
     status: "Completed",
   },
   {
     type: "Fakepixel Monthly Youtube Reward Pool",
     creatorSize: "45k Combined",
-    performance: "Ongoing campaign, early indicators show strong engagement",
+    performance: "Still running. Early numbers are tracking ahead of the projected conversion rate.",
     status: "Ongoing",
   },
 

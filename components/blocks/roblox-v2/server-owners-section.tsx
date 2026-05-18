@@ -8,10 +8,10 @@ import { Button } from "@/components/ui/button"
 import { useMounted } from "@/lib/use-mounted"
 
 const points = [
-  "Access vetted Roblox creators with the right audience fit",
-  "Structured campaign execution with clear milestones",
-  "Defined deliverables, posting windows, and quality controls",
-  "Centralized negotiation and communication management",
+  "Matched with creators whose audience is actually playing games like yours",
+  "A campaign brief signed before anything goes live timeline, talking points, posting date",
+  "If a creator misses a deadline, we follow up. Not you.",
+  "One point of contact for the entire deal, start to finish",
 ]
 
 export default function ServerOwnersSection() {
@@ -32,7 +32,10 @@ export default function ServerOwnersSection() {
               For Game Owners
             </h2>
             <p className="text-lg text-text-muted leading-relaxed">
-              Launch creator sponsorships without the sourcing headache. We find the right voices for your audience. Campaigns optimized for high-LTV players and sustained engagement, not vanity metrics.
+              You don&apos;t need the creator with the biggest channel. You need the one whose viewers are actually playing games like yours.
+            </p>
+            <p className="text-base text-text-muted leading-relaxed mt-2">
+              We match you based on audience fit, not subscriber count. And we care about players who stick around, not a weekend spike that empties out by Monday.
             </p>
 
             <div className="flex flex-col gap-4 mt-2">

@@ -12,16 +12,16 @@ const FinalCTAV2 = dynamic(() => import("@/components/blocks/roblox-v2/final-cta
 export const metadata: Metadata = {
   title: "Roblox Game Promotion & Sponsorship Agency",
   description:
-    "Get your Roblox game seen by millions. MediaHouse partners with top Roblox YouTubers and creators for structured, performance-driven game promotions.",
+    "Get your Roblox game seen by millions. MediaHouse partners with top Roblox YouTubers and creators for results-focused game promotions.",
   openGraph: {
     title: "Roblox Game Promotion Agency | MediaHouse",
-    description: "Partner with top Roblox creators for performance-driven game promotion campaigns.",
+    description: "Partner with top Roblox creators for results-focused game promotion campaigns.",
     url: "https://media-house.studio/roblox",
   },
   twitter: {
     card: "summary_large_image",
     title: "Roblox Game Promotion Agency | MediaHouse",
-    description: "Partner with top Roblox creators for performance-driven game promotion campaigns.",
+    description: "Partner with top Roblox creators for results-focused game promotion campaigns.",
   },
   alternates: {
     canonical: "https://media-house.studio/roblox",

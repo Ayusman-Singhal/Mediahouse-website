@@ -240,18 +240,16 @@ export default function HeroBridge() {
 
         {/* Intro panel */}
         <div ref={logoRef} className={styles.logoWrapper}>
-          <h1 className={styles.heroTitle}>Structured Sponsorships for the Minecraft Ecosystem</h1>
+          <h1 className={styles.heroTitle}>Minecraft Server Promotion Without the Headache</h1>
           <p className={styles.heroBody}>
-            Professional campaign brokerage for creators and server owners. We manage negotiation,
-            campaign structuring, and delivery oversight end to end.
+            We find the right creators for your server, negotiate the deal, and make sure the
+            campaign actually runs the way it was supposed to.
           </p>
           <div className={styles.heroActions}>
             <Button asChild variant="ctaPrimary" size="cta" className="duration-300">
-              <Link href="/apply/creator">Apply as Creator</Link>
-            </Button>
-            <Button asChild variant="ctaOutline" size="cta" className="duration-300">
               <Link href="/apply/server-owner">Submit Campaign</Link>
             </Button>
+            <Link href="/apply/creator" className="text-sm font-medium text-white/60 underline underline-offset-4 hover:text-white transition-colors duration-200">or apply as a creator</Link>
           </div>
           <div className={styles.logoSeal}>
             <Image src="/assets/MediaHouseLogo.png" alt="MediaHouse Logo" width={92} height={92} priority sizes="92px" className={styles.heroLogo} />
@@ -278,8 +276,8 @@ export default function HeroBridge() {
         <div ref={serverTextRef} className={styles.textRight}>
           <p className={styles.sectionEyebrow}>For server operators</p>
           <h2 className={styles.sectionTitle}>Server Owners</h2>
-          <p className={styles.sectionBody}>Access vetted gaming creators, structured campaign execution, defined deliverables, and centralized negotiation management.</p>
-          <p className={styles.sectionBody}>Grow your server with professional sponsorship campaigns managed from start to finish.</p>
+          <p className={styles.sectionBody}>Matched with creators whose audience actually plays games like yours. A clear campaign brief before anything goes live, and one point of contact for the entire deal.</p>
+          <p className={styles.sectionBody}>Grow your server with sponsorship campaigns managed from start to finish.</p>
         </div>
 
         {/* Creator Island + Text */}
@@ -298,8 +296,8 @@ export default function HeroBridge() {
         <div ref={creatorTextRef} className={styles.textLeft}>
           <p className={styles.sectionEyebrow}>For gaming creators</p>
           <h2 className={styles.sectionTitle}>Creators</h2>
-          <p className={styles.sectionBody}>Creator Management and Talent Sourcing, Direct sponsorship negotiation, rate protection, campaign structuring, and business communication management.</p>
-          <p className={styles.sectionBody}>Focus on creating - we handle the business side.</p>
+          <p className={styles.sectionBody}>We negotiate your rate, scope every deliverable (the specific content you need to create) in writing, and handle all brand communication on your behalf.</p>
+          <p className={styles.sectionBody}>You keep making videos. We handle the rest.</p>
         </div>
 
         {/* Data Connector (replaces old bridge) */}
@@ -311,18 +309,16 @@ export default function HeroBridge() {
         <div ref={overlayRef} className={styles.overlay}
              style={{ opacity: 1 }}>
           <h2 className="font-heading text-[clamp(2rem,6vw,4.5rem)] font-extrabold leading-[1.1] tracking-[-0.02em] mb-4 opacity-100">
-            Structured Sponsorships for Gaming Creators &amp; Server Owners
+            Creator Sponsorships for Minecraft Servers &amp; Content Creators
           </h2>
           <p className="text-[clamp(0.95rem,2vw,1.125rem)] leading-[1.65] tracking-[0.01em] text-text-muted mb-7 opacity-87">
             MediaHouse manages negotiation, execution, and campaign delivery from start to finish.
           </p>
-          <div className="flex gap-4 justify-center flex-wrap">
+          <div className="flex items-center gap-6 justify-center flex-wrap">
             <Button asChild variant="ctaPrimary" size="cta" className="duration-300">
-              <Link href="/apply/creator">Apply as Creator</Link>
-            </Button>
-            <Button asChild variant="ctaOutline" size="cta" className="duration-300">
               <Link href="/apply/server-owner">Submit Campaign</Link>
             </Button>
+            <Link href="/apply/creator" className="text-sm font-medium text-white/60 underline underline-offset-4 hover:text-white transition-colors duration-200">or apply as a creator</Link>
           </div>
         </div>
       </div>

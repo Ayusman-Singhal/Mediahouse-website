@@ -7,9 +7,13 @@ export default function AuthoritySection() {
         </h2>
         <div className="h-6" />
         <p className="text-[clamp(0.95rem,2vw,1.125rem)] leading-[1.65] tracking-[0.01em] text-text-muted max-w-2xl opacity-87">
-          MediaHouse connects growth-focused server operators with
-          performance-driven gaming creators. We negotiate deals, structure
-          campaigns, and oversee deliverables with professional control.
+          Running a Minecraft server is already a full-time job. Sourcing creators, negotiating rates,
+          and chasing deliverables should not be part of it.
+        </p>
+        <div className="h-4" />
+        <p className="text-[clamp(0.95rem,2vw,1.125rem)] leading-[1.65] tracking-[0.01em] text-text-muted max-w-2xl opacity-87">
+          MediaHouse sits between you and the creator. We find the right fit, agree on the terms, and
+          stay on it until the video is live and the campaign is closed.
         </p>
       </div>
     </section>

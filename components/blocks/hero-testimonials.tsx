@@ -125,19 +125,10 @@ export default function HeroTestimonials({
               minWidth: isCompact ? "180px" : "220px",
             }}
           >
-            {/* Avatar circle */}
-            <div
-              className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold"
-              style={{
-                background: `linear-gradient(135deg, hsl(${(i * 47) % 360}, 70%, 55%), hsl(${(i * 47 + 60) % 360}, 70%, 45%))`,
-              }}
-            >
-              {t.name[0]}
-            </div>
-            {/* Text */}
+            {/* Text only — no avatar initials (removed AI builder pattern) */}
             <p className="text-sm leading-snug">
-              <span className="font-semibold text-white">{t.name}</span>
-              <span className="text-neutral-400"> - {t.msg}</span>
+              <span className="text-neutral-400">&ldquo;{t.msg}&rdquo;</span>
+              <span className="block mt-1 text-xs font-medium text-white/60">&mdash; {t.name}</span>
             </p>
           </div>
         </div>

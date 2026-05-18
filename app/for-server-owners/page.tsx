@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Promote Your Minecraft Server or Roblox Game | MediaHouse",
-    description: "Hire vetted gaming creators for structured, performance-driven promotion campaigns. High-ROI influencer marketing for game owners.",
+    description: "Hire screened gaming creators for results-focused promotion campaigns. High-ROI influencer marketing for game owners.",
   },
   alternates: {
     canonical: "https://media-house.studio/for-server-owners",
@@ -76,7 +76,7 @@ export default function ForServerOwnersPage() {
           Stop Wasting Ad Spend on Low-Converting Traffic
         </h1>
         <p className="text-xl text-text-muted mb-10 max-w-2xl mx-auto">
-          Partner with top-tier gaming creators for structured, performance-driven campaigns that drive engaged players directly to your game.
+          Partner with top-tier gaming creators for results-focused campaigns that drive engaged players directly to your game.
         </p>
         <Link
           href="/apply/server-owner"

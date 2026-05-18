@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     template: "%s | MediaHouse",
   },
   description:
-    "MediaHouse connects growth-focused server operators with performance-driven gaming creators. The premier gaming sponsorship agency for Minecraft and Roblox.",
+    "MediaHouse runs creator sponsorship campaigns for Minecraft and Roblox server owners. We handle sourcing, negotiation, and delivery from start to finish.",
   keywords: ["gaming sponsorship agency", "paid promotions for gaming creators", "Minecraft server promotion", "Roblox game advertising", "influencer marketing for games", "hire YouTubers for gaming"],
   robots: "index, follow",
   alternates: {
@@ -65,19 +65,19 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "MediaHouse - Gaming Sponsorships, Managed Professionally",
+    title: "MediaHouse - Server Promotion That Actually Gets Done",
     description:
-      "Connect with vetted gaming creators. We handle negotiation, campaign structuring, and delivery for Minecraft and Roblox game owners.",
+      "Connect with screened gaming creators. We handle negotiation, campaign structuring, and delivery for Minecraft and Roblox game owners.",
     type: "website",
     url: "https://media-house.studio",
     siteName: "MediaHouse",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "MediaHouse - Gaming Sponsorships, Managed Professionally" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "MediaHouse - Server Promotion That Actually Gets Done" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "MediaHouse - Gaming Sponsorships",
     description:
-      "Connect with vetted gaming creators. We handle negotiation, campaign structuring, and delivery for Minecraft and Roblox game owners.",
+      "Connect with screened gaming creators. We handle negotiation, campaign structuring, and delivery for Minecraft and Roblox game owners.",
     images: ["/og-image.jpg"],
   },
 }

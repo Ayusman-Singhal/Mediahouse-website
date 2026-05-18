@@ -14,16 +14,16 @@ const FinalCTA = dynamic(() => import("@/components/blocks/minecraft/final-cta")
 export const metadata: Metadata = {
   title: "Minecraft Server Promotion & Sponsorship Agency",
   description:
-    "Promote your Minecraft server with top gaming creators. MediaHouse creates awareness-driven campaigns and structured sponsorships to grow your community.",
+    "Promote your Minecraft server through creator sponsorships. MediaHouse handles sourcing, negotiation, and campaign delivery for server owners.",
   openGraph: {
     title: "Minecraft Server Promotion Agency | MediaHouse",
-    description: "Promote your Minecraft server with top gaming creators. Awareness-driven campaigns to grow your community.",
+    description: "Promote your Minecraft server through creator sponsorships managed from start to finish.",
     url: "https://media-house.studio/minecraft",
   },
   twitter: {
     card: "summary_large_image",
     title: "Minecraft Server Promotion Agency | MediaHouse",
-    description: "Promote your Minecraft server with top gaming creators. Performance-driven campaigns to grow your community.",
+    description: "Creator sponsorships for Minecraft servers, managed from start to finish.",
   },
   alternates: {
     canonical: "https://media-house.studio/minecraft",
