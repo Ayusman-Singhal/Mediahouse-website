@@ -93,6 +93,11 @@
   --color-discord: #5865F2;
   --surface-card: #161616;
 
+  /* Surface variation tokens (Fix 9: break single-background monotony) */
+  --surface-base: #0F0F0F;
+  --surface-raised: #161616;
+  --surface-section: #131313;
+
   /* Roblox brand tokens */
   --roblox-red: #E2231A;
   --roblox-red-dark: #B71C1C;
@@ -173,6 +178,9 @@
   --color-error: var(--color-error);
   --color-discord: var(--color-discord);
   --color-surface-card: var(--surface-card);
+  --color-surface-base: var(--surface-base);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-section: var(--surface-section);
 
   /* Roblox brand */
   --color-roblox-red: var(--roblox-red);
@@ -218,6 +226,20 @@
     overflow-x: hidden;
   }
   
+  /* Lenis smooth scroll */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  
   /* Typography hierarchy classes */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
@@ -226,11 +248,22 @@
     font-weight: 700;
   }
   
+  /* Fix 10: Expanded heading scale — H1 is dramatically larger than H2 */
   h1 {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 700;
     letter-spacing: var(--tracking-tighter);
   }
   
-  h2, h3 {
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 600;
+    letter-spacing: var(--tracking-tight);
+  }
+  
+  h3 {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 500;
     letter-spacing: var(--tracking-tight);
   }
   

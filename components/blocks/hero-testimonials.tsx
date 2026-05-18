@@ -118,17 +118,19 @@ export default function HeroTestimonials({
           data-delay={t.layout.delay}
         >
           <div
-            className="flex items-center gap-3 px-4 py-3 rounded-xl border border-white/[0.08] backdrop-blur-xl shadow-2xl"
+            className="flex items-start gap-3 px-4 py-3 rounded-xl border border-white/[0.08] backdrop-blur-xl shadow-2xl overflow-hidden"
             style={{
               background: "rgba(20, 20, 20, 0.85)",
               maxWidth: isCompact ? "230px" : "280px",
               minWidth: isCompact ? "180px" : "220px",
+              borderLeft: `2px solid hsl(${(i * 47 + 20) % 360}, 60%, 55%)`,
             }}
           >
-            {/* Text only — no avatar initials (removed AI builder pattern) */}
+            {/* Decorative quote mark */}
+            <span className="text-brand/30 text-2xl font-serif leading-none shrink-0 -mt-0.5">&ldquo;</span>
             <p className="text-sm leading-snug">
-              <span className="text-neutral-400">&ldquo;{t.msg}&rdquo;</span>
-              <span className="block mt-1 text-xs font-medium text-white/60">&mdash; {t.name}</span>
+              <span className="text-white/90">{t.msg}</span>
+              <span className="block mt-1.5 text-xs font-semibold tracking-wide" style={{ color: `hsl(${(i * 47 + 20) % 360}, 55%, 65%)` }}>{t.name}</span>
             </p>
           </div>
         </div>

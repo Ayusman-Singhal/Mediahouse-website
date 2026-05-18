@@ -9,13 +9,11 @@ export default function FinalCTA() {
           Ready to Run a Campaign That Actually Delivers?
         </h2>
         <div className="h-12" />
-        <div className="flex gap-4 justify-center flex-wrap">
+        <div className="flex items-center gap-6 justify-center flex-wrap">
           <Button asChild variant="ctaPrimary" size="cta" className="duration-300">
-            <Link href="/apply/creator">Apply as Creator</Link>
+            <Link href="/apply/server-owner">Submit Campaign Request</Link>
           </Button>
-          <Button asChild variant="ctaOutline" size="cta" className="duration-300">
-            <Link href="/apply/server-owner">Submit Promotion Request</Link>
-          </Button>
+          <Link href="/apply/creator" className="text-sm font-medium text-white/60 underline underline-offset-4 hover:text-white transition-colors duration-200">or apply as a creator</Link>
         </div>
       </div>
     </section>

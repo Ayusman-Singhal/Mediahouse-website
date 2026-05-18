@@ -20,11 +20,11 @@ const buttonVariants = cva(
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         link: "text-primary underline-offset-4 hover:underline",
         ctaPrimary:
-          "border-none bg-gradient-to-br from-brand to-brand-secondary text-white hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,107,53,0.3)]",
+          "border-none bg-gradient-to-br from-brand to-brand-secondary text-white hover:-translate-y-0.5",
         ctaOutline:
           "bg-transparent text-white border-white/15 hover:bg-white/5 hover:border-white/30 hover:-translate-y-0.5",
         ctanotPrimary:
-          "border-none bg-gradient-to-br from-brand-purple to-brand-purple-dark text-white hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,107,53,0.3)]",
+          "border-none bg-gradient-to-br from-brand-purple to-brand-purple-dark text-white hover:-translate-y-0.5",
         
       },
       size: {

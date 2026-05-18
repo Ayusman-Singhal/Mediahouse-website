@@ -46,16 +46,10 @@ export default function FinalCTAV2() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
-            <Button asChild variant="ctaOutline" size="cta" className="h-14 px-8 group w-full sm:w-auto flex items-center justify-center">
-              <Link href="/apply/creator">
-                Apply as Creator
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-            
             <Button asChild variant="ctaPrimary" size="cta" className="h-14 px-8 w-full sm:w-auto flex items-center justify-center">
               <Link href="/apply/server-owner">Submit Campaign</Link>
             </Button>
+            <Link href="/apply/creator" className="text-sm font-medium text-white/60 underline underline-offset-4 hover:text-white transition-colors duration-200">or apply as a creator</Link>
           </div>
           
           <div className="mt-10 flex items-center justify-center gap-2 text-sm text-text-muted">

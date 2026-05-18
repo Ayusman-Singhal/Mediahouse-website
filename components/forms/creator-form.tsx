@@ -259,7 +259,7 @@ export default function CreatorForm() {
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full mt-2 bg-gradient-to-br from-brand to-brand-secondary text-white font-heading font-semibold py-5 sm:py-6 rounded-lg text-[0.9375rem] sm:text-base hover:shadow-[0_6px_24px_rgba(255,107,53,0.3)] hover:-translate-y-px transition-all duration-250 disabled:opacity-60"
+        className="w-full mt-2 bg-gradient-to-br from-brand to-brand-secondary text-white font-heading font-semibold py-5 sm:py-6 rounded-lg text-[0.9375rem] sm:text-base hover:-translate-y-px transition-all duration-250 disabled:opacity-60"
         aria-busy={isSubmitting}
       >
         <ButtonLoading isLoading={isSubmitting} loadingText="Submitting...">

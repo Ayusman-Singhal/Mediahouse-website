@@ -85,7 +85,7 @@ export default function Header() {
 
           {/* Desktop CTAs */}
           <div className="hidden md:flex items-center gap-3">
-            <Button asChild variant="ctaPrimary" size="ctaSm" className="duration-250 hover:shadow-[0_4px_20px_rgba(255,107,53,0.25)]">
+            <Button asChild variant="ctaPrimary" size="ctaSm" className="duration-250">
               <Link href="/apply/server-owner">Submit Campaign</Link>
             </Button>
             <Button asChild variant="ctaOutline" size="ctaSm" className="duration-250 hover:border-white/35 hover:bg-white/[0.04] hover:translate-y-0">
@@ -159,7 +159,7 @@ export default function Header() {
               asChild
               variant="ctaPrimary"
               size="cta"
-              className="w-full rounded-md px-6 py-3 duration-250 hover:-translate-y-px hover:shadow-[0_4px_20px_rgba(255,107,53,0.25)]"
+              className="w-full rounded-md px-6 py-3 duration-250 hover:-translate-y-px"
             >
               <Link href="/apply/server-owner" onClick={() => setMobileOpen(false)}>
                 Submit Campaign

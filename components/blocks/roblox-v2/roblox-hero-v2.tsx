@@ -73,11 +73,7 @@ export default function RobloxHeroV2() {
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
-          <Button asChild variant="ctaOutline" size="cta" className="h-14 px-8 w-full sm:w-auto flex items-center justify-center">
-            <Link href="/apply/creator">
-              Apply as Creator
-            </Link>
-          </Button>
+          <Link href="/apply/creator" className="text-sm font-medium text-white/60 underline underline-offset-4 hover:text-white transition-colors duration-200 text-center">or apply as a creator</Link>
         </motion.div>
       </div>
     </section>

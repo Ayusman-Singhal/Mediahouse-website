@@ -69,7 +69,7 @@ export default function ForServerOwners() {
                 alt="Server Owner Island"
                 width={400}
                 height={400}
-                className="h-auto w-full max-w-[400px] drop-shadow-2xl"
+                className="h-auto w-full max-w-[440px] drop-shadow-2xl"
                 priority
               />
             </div>

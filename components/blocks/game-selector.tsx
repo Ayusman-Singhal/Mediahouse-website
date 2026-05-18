@@ -60,7 +60,7 @@ export default function GameSelector() {
           {/* ── Minecraft Card ── */}
           <motion.div variants={cardVariants} className="h-full">
             <Link href="/minecraft" className="block h-full outline-none">
-              <Card className="group relative h-full min-h-[400px] sm:min-h-[480px] overflow-hidden border-white/10 p-8 sm:p-10 md:p-12 transition-all duration-500 hover:border-[#10B981]/40 hover:-translate-y-2 hover:shadow-[0_24px_80px_rgba(16,185,129,0.15)] flex flex-col justify-end text-left">
+              <Card className="group relative h-full min-h-[400px] sm:min-h-[480px] overflow-hidden border-white/10 p-8 sm:p-10 md:p-12 transition-all duration-500 hover:border-[#10B981]/40 hover:-translate-y-2 flex flex-col justify-end text-left">
 
                 {/* Background Image - SEO-safe: lazy loaded since below fold */}
                 <div className="absolute inset-0 z-0">
@@ -98,7 +98,7 @@ export default function GameSelector() {
           {/* ── Roblox Card ── */}
           <motion.div variants={cardVariants} className="h-full">
             <Link href="/roblox" className="block h-full outline-none">
-              <Card className="group relative h-full min-h-[400px] sm:min-h-[480px] overflow-hidden border-white/10 p-8 sm:p-10 md:p-12 transition-all duration-500 hover:border-roblox-red/40 hover:-translate-y-2 hover:shadow-[0_24px_80px_rgba(226,35,26,0.15)] flex flex-col justify-end text-left">
+              <Card className="group relative h-full min-h-[400px] sm:min-h-[480px] overflow-hidden border-white/10 p-8 sm:p-10 md:p-12 transition-all duration-500 hover:border-roblox-red/40 hover:-translate-y-2 flex flex-col justify-end text-left">
 
                 {/* Background Image - SEO-safe: lazy loaded since below fold */}
                 <div className="absolute inset-0 z-0">

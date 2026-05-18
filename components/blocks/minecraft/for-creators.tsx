@@ -45,7 +45,7 @@ export default function ForCreators() {
                 alt="Creator Island"
                 width={400}
                 height={400}
-                className="h-auto w-full max-w-[400px] drop-shadow-2xl"
+                className="h-auto w-full max-w-[360px] drop-shadow-2xl"
                 priority
               />
             </div>

@@ -1,7 +1,7 @@
 export default function AuthoritySection() {
   return (
-    <section id="authority" className="w-full py-16 sm:py-24 md:py-30 px-6 relative">
-      <div className="max-w-[1200px] mx-auto text-center flex flex-col items-center">
+    <section id="authority" className="w-full py-16 sm:py-24 md:py-30 px-6 relative bg-surface-section">
+      <div className="max-w-[1200px] mx-auto flex flex-col items-start">
         <h2 className="font-heading text-[clamp(1.75rem,5vw,3.5rem)] font-extrabold leading-[1.1] tracking-[-0.01em] opacity-100">
           A Managed Sponsorship Brokerage
         </h2>
